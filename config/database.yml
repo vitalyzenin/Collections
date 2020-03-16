@@ -51,6 +51,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  encoding: utf8
   database: Collections_production
   username: Collections
   password: <%= ENV['COLLECTIONS_DATABASE_PASSWORD'] %>
