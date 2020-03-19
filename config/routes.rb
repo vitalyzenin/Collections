@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   devise_for :users
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :collections, except: [:index, :new, :edit]
+  end
 
   root to: "welcome#index"
 end
