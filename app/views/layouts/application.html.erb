@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <ul class="hmenu">
+      <%= render 'templates/devise/registration_items' %>
+      <%= render 'templates/devise/login_items' %>
+    </ul>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
