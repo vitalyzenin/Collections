@@ -1,10 +1,12 @@
 class CollectionsController < ApplicationController
   
   def show
-    @collection = current_user.collections.find(params[:id])
+    @host_user = User.find(params[:user_id])
+    @collection = @host_user.collections.find(params[:id])
   end
 
   def create
+    @host_user = User.find(params[:user_id])
     @collection = current_user.collections.create(collection_params)
     redirect_to user_path(current_user)
   end

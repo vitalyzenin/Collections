@@ -1,23 +1,11 @@
 <p><%= link_to 'Home', root_path %></p>
-<h1>Your Collections</h1>
-<p>You're now logged in as <%= current_user.email %></p>
-
-<h2>Collections</h2>
-<% current_user.collections.each do |collection| %>
-  <div>
-    <p>
-      <strong>Collection name</strong>
-      <%= collection.name %>
-    </p>
-    <p>
-      <strong>Description</strong>
-      <%= collection.description %>
-    </p>
-    <p>
-      <p><%= link_to 'view', user_collection_path(current_user, collection) %></p>
-    </p>
-  </div>
+<% if @host_user.id == current_user.id %>
+  <h1>Your Collections</h1>
+<% else %>
+  <h1>Another User Collections</h1>
+  <p>You are now visiting <%= @host_user.email %>'s page</p>
 <% end %>
+<p>You're now logged in as <%= current_user.email %></p>
 
 <h2>Add collection</h2>
 <%= form_for Collection.new, url: user_collections_path(current_user), method: :create do |form| %>
@@ -32,4 +20,21 @@
     <%= form.text_area :description %>
   </p>
   <%= form.submit %>
+<% end %>
+
+<h2>Collections</h2>
+<% @host_user.collections.each do |collection| %>
+  <div>
+    <p>
+      <strong>Collection name</strong>
+      <%= collection.name %>
+    </p>
+    <p>
+      <strong>Description</strong>
+      <%= collection.description %>
+    </p>
+    <p>
+      <p><%= link_to 'view', user_collection_path(@host_user, collection) %></p>
+    </p>
+  </div>
 <% end %>

@@ -6,5 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
+    @host_user = User.find(params[:id])
   end
 end

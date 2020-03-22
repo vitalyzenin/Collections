@@ -1,5 +1,5 @@
 <p><%= link_to 'Home', root_path %></p>
-<p><%= link_to 'back', user_path(current_user) %></p>
+<p><%= link_to 'back', user_path(@host_user) %></p>
 <h1>Collection <%= @collection.name %></h1>
 <p>You're now logged in as <%= current_user.email %></p>
 
