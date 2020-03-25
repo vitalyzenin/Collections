@@ -1,4 +1,4 @@
-class CollectionsController < ApplicationController
+class CollectionsController < CrudController
   
   def show
     @host_user = User.find(params[:user_id])

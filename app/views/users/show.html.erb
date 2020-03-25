@@ -1,14 +1,21 @@
 <p><%= link_to 'Home', root_path %></p>
-<% if @host_user.id == current_user.id %>
-  <h1>Your Collections</h1>
+
+<% if user_signed_in? %>
+  <p>You're now logged in as <%= current_user.email %></p>
+  <% if @host_user.id == current_user.id %>
+    <h1>Your Collections</h1>
+    <h2>Add collection</h2>
+    <%= render 'collections/formnew' %>
+    <h2>Collections</h2>
+    <%= render @host_user.collections %>
+  <% end %>
 <% else %>
+  <p>You're now viewing this site as anonymous user</p>
+<% end %>
+
+<% if !user_signed_in? or (@host_user.id != current_user.id) %>
   <h1>Another User Collections</h1>
   <p>You are now visiting <%= @host_user.email %>'s page</p>
+  <h2>Collections</h2>
+  <%= render @host_user.collections %>
 <% end %>
-<p>You're now logged in as <%= current_user.email %></p>
-
-<h2>Add collection</h2>
-<%= render 'collections/formnew' %>
-
-<h2>Collections</h2>
-<%= render @host_user.collections %>

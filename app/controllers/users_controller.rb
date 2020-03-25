@@ -1,6 +1,4 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!
-  
+class UsersController < CrudController
   def index
     @users = User.all.order(id: :asc)
   end

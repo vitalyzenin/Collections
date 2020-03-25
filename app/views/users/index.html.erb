@@ -1,3 +1,10 @@
 <p><%= link_to 'Home', root_path %></p>
-<p>You're now logged in as <%= current_user.email %></p>
-<p>Users List</p>
+
+<% if user_signed_in? %>
+  <p>You're now logged in as <%= current_user.email %></p>
+  <p><%= link_to 'My collections', user_path(current_user) %></p>
+<% else %>
+  <p>You're now viewing this site as anonymous user</p>
+<% end %>
+
+<h1>Users List</h1>

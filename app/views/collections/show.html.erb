@@ -1,7 +1,13 @@
 <p><%= link_to 'Home', root_path %></p>
 <p><%= link_to 'back', user_path(@host_user) %></p>
 <h1>Collection <%= @collection.name %></h1>
-<p>You're now logged in as <%= current_user.email %></p>
+
+<% if user_signed_in? %>
+  <p>You're now logged in as <%= current_user.email %></p>
+  <p><%= link_to 'My collections', user_path(current_user) %></p>
+<% else %>
+  <p>You're now viewing this site as anonymous user</p>
+<% end %>
 
 <div>
   <p>

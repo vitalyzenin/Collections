@@ -1,4 +1,10 @@
 <h1>Welcome to Collections site</h1>
-<p>You're now logged in as <%= current_user.email %></p>
+
+<% if user_signed_in? %>
+  <p>You're now logged in as <%= current_user.email %></p>
+  <p><%= link_to 'My collections', user_path(current_user) %></p>
+<% else %>
+  <p>You're now viewing this site as anonymous user</p>
+<% end %>
+
 <p><%= link_to 'Another users collections here', users_path %></p>
-<p><%= link_to 'My collections', user_path(current_user) %></p>

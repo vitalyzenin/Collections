@@ -1,6 +1,4 @@
-class WelcomeController < ApplicationController
-  before_action :authenticate_user!
-  
+class WelcomeController < CrudController
   def index
   end
 end
