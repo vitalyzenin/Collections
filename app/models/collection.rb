@@ -20,4 +20,6 @@ class Collection < ApplicationRecord
     Toys: "Toys",
     Trinkets: "Trinkets"
   }
+
+  mount_uploader :picture, ColPictureUploader
 end
