@@ -12,9 +12,15 @@ class CollectionsController < CrudController
   end
 
   def update
+    @host_user = User.find(params[:user_id])
+    @collection = current_user.collections.update(collection_params)
+    redirect_to user_path(current_user)
   end
 
   def destroy
+    collection = current_user.collections.find(params[:id])
+    collection.destroy!
+    redirect_to user_path(current_user)
   end
 
   private

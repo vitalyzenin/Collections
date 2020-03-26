@@ -1,0 +1,19 @@
+<% current_user.collections.each do |collection| %>
+  <%= form_for collection, url: user_collection_path(current_user, collection), method: :put do |form| %>
+    <p>
+      <%= form.label ("Collection name") %><br>
+      <%= form.text_field :name %>
+      name should be unique and 3 characters length at minimum
+    </p>
+    <p>
+      <%= form.label :Description %><br>
+      <%= form.text_area :description %>
+    </p>
+    <p>
+      <%= form.label ("Theme") %><br>
+      <%= form.select(:theme, Collection.themes.values) %>
+    </p>
+    <%= form.submit :update, class: "btn" %>
+    <%= link_to :remove, user_collection_path(current_user, collection), method: :delete, class: "btn" %>
+  <% end %>
+<% end %>
