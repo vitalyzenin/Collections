@@ -19,6 +19,6 @@ class CollectionsController < CrudController
 
   private
     def collection_params
-      params.require(:collection).permit(:name, :description)
+      params.require(:collection).permit(:name, :description, :theme)
     end
 end

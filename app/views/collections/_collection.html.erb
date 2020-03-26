@@ -1,11 +1,15 @@
 <div>
   <p>
-    <strong>Collection name</strong>
+    <strong>Collection name:</strong>
     <%= collection.name %>
   </p>
   <p>
-    <strong>Description</strong>
+    <strong>Description:</strong>
     <%= collection.description %>
+  </p>
+  <p>
+    <strong>Theme:</strong>
+    <%= collection.theme %>
   </p>
   <p>
     <p><%= link_to 'view', user_collection_path(@host_user, collection) %></p>
