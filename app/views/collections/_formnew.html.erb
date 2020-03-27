@@ -1,17 +1,17 @@
 <%= form_for Collection.new, url: user_collections_path(current_user), method: :create do |form| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <p>
-    <%= form.label ("Collection name") %><br>
-    <%= form.text_field :name %>
-    name should be unique and 3 characters length at minimum
+    <%= form.label t 'collections.show.name' %><br>
+    <%= form.text_field :name %><br>
+    <%= t 'collections.show.warning' %>
   </p>
   <p>
-    <%= form.label :Description %><br>
+    <%= form.label t 'collections.show.description' %><br>
     <%= form.text_area :description %>
   </p>
   <p>
-    <%= form.label ("Theme") %><br>
+    <%= form.label t 'collections.show.theme' %><br>
     <%= form.select(:theme, Collection.theme.options) %>
   </p>
-  <%= form.submit %>
+  <%= form.submit t 'collections.show.create' %>
 <% end %>

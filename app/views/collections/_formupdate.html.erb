@@ -1,19 +1,22 @@
 <% current_user.collections.each do |collection| %>
   <%= form_for collection, url: user_collection_path(current_user, collection), method: :put do |form| %>
     <p>
-      <%= form.label ("Collection name") %><br>
-      <%= form.text_field :name %>
-      name should be unique and 3 characters length at minimum
+      <%= form.label t 'collections.show.name' %><br>
+      <%= form.text_field :name %><br>
+      <%= t 'collections.show.warning' %>
     </p>
     <p>
-      <%= form.label :Description %><br>
+      <%= form.label t 'collections.show.description' %><br>
       <%= form.text_area :description %>
     </p>
     <p>
-      <%= form.label ("Theme") %><br>
+      <%= form.label t 'collections.show.theme' %><br>
       <%= form.select(:theme, Collection.theme.options) %>
     </p>
-    <%= form.submit :update, class: "btn" %>
-    <%= link_to :remove, user_collection_path(current_user, collection), method: :delete, class: "btn" %>
+    <p>
+      <%= form.submit t 'collections.show.update', class: "btn" %>
+      <%= link_to (t 'collections.show.remove'), user_collection_path(current_user, collection), method: :delete, class: "btn" %>
+      <%= link_to (t 'collections.show.view'), user_collection_path(@host_user, collection) %>
+    </p>
   <% end %>
 <% end %>

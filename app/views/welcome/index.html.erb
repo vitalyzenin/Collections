@@ -8,10 +8,10 @@
     <%= form.label "Русский", for: "ru" %>
     <%= form.submit t '.save', class: "btn" %>
   <% end %>
-  <p><%= t '.logged' %> <%= current_user.email %></p>
-  <p><%= link_to (t '.office'), user_path(current_user) %></p>
+  <p><%= t('info.logged', who_am_i: current_user.email) %></p>
+  <p><%= link_to (t 'links.office'), user_path(current_user) %></p>
 <% else %>
-  <p><%= t '.anon' %></p>
+  <p><%= t 'info.anon' %></p>
 <% end %>
 
 <p><%= link_to (t '.userslist'), users_path %></p>

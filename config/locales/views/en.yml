@@ -3,7 +3,31 @@ en:
     index:
       welcome: "Welcome to collections site!"
       save: "Save language"
-      logged: "You're now logged in as"
-      office: "My collections"
-      anon: "You're now viewing this site as anonymous user"
       userslist: "Another users collections here"
+  users:
+    index:
+      users_list: "Users List"
+    show:
+      your: "Your Collections"
+      add: "Add collection"
+      collections: "Collections List"
+      other: "Another User Collections List"
+      host_user: "You are now visiting %{who_it}'s page"
+  collections:
+    show:
+      name: "Collection name:"
+      description: "Description:"
+      theme: "Theme:"
+      view: "To the collection page"
+      warning: "name should be unique and 3 characters length at minimum"
+      create: "Create Collection"
+      update: "Update Collection"
+      remove: "Remove Collection"
+      back: "back"
+      header: "Collection %{collection_name}"
+  links:
+    home: "Homepage"
+    office: "My collections"
+  info:
+    logged: "You're now logged in as %{who_am_i}"
+    anon: "You're now viewing this site as anonymous user"

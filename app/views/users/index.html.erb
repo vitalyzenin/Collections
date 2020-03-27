@@ -1,10 +1,10 @@
-<p><%= link_to 'Home', root_path %></p>
+<p><%= link_to (t 'links.home'), root_path %></p>
 
 <% if user_signed_in? %>
-  <p>You're now logged in as <%= current_user.email %></p>
-  <p><%= link_to 'My collections', user_path(current_user) %></p>
+  <p><%= t('info.logged', who_am_i: current_user.email) %></p>
+  <p><%= link_to (t 'links.office'), user_path(current_user) %></p>
 <% else %>
-  <p>You're now viewing this site as anonymous user</p>
+  <p><%= t 'info.anon' %></p>
 <% end %>
 
-<h1>Users List</h1>
+<h1><%= t '.users_list' %></h1>
