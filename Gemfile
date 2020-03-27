@@ -14,8 +14,13 @@ group :production do
 end
 gem 'devise'
 # Use Puma as the app server
-gem 'carrierwave', '~> 2.0'
 gem 'puma', '~> 4.1'
+
+gem 'carrierwave', '~> 2.0'
+
+gem 'rails-i18n', '~> 6.0.0'
+gem 'http_accept_language'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
 gem 'sassc', '~> 2.1.0'

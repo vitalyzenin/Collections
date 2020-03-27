@@ -1,6 +1,13 @@
 <h1>Welcome to Collections site</h1>
 
 <% if user_signed_in? %>
+  <%= form_for current_user, url: user_path(current_user), method: :put do |form| %>
+    <%= form.radio_button :locale, "en", id: "en" %>
+    <%= form.label "English", for: "en" %>
+    <%= form.radio_button :locale, "ru", id: "ru" %>
+    <%= form.label "Russian", for: "ru" %>
+    <%= form.submit :save, class: "btn" %>
+  <% end %>
   <p>You're now logged in as <%= current_user.email %></p>
   <p><%= link_to 'My collections', user_path(current_user) %></p>
 <% else %>
