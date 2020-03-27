@@ -1,2 +1,21 @@
 ru:
-  Alcohol: "Спиртное"
+  enumerize:
+    collection:
+      theme:
+        Alcohol: "Спиртное"
+        Animals: "Животные"
+        Badges: "Значки"
+        Balls: "Футбольные мячи"
+        Books: "Книги"
+        Calendars: "Календари"
+        Cards: "Открытки"
+        Coins: "Монеты"
+        Figurines: "Фигурки"
+        Gems: "Драгоценные камни"
+        Keys: "Ключи"
+        Marks: "Почтовые марки"
+        Shells: "Ракушки"
+        Tickets: "Билеты"
+        Toys: "Игрушки"
+        Trinkets: "Брелоки"
+        

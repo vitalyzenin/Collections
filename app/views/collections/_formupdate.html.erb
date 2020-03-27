@@ -11,7 +11,7 @@
     </p>
     <p>
       <%= form.label ("Theme") %><br>
-      <%= form.select(:theme, Collection.themes.values) %>
+      <%= form.select(:theme, Collection.theme.options) %>
     </p>
     <%= form.submit :update, class: "btn" %>
     <%= link_to :remove, user_collection_path(current_user, collection), method: :delete, class: "btn" %>

@@ -1,2 +1,21 @@
 en:
-  Alcohol: "Alcohol"
+  enumerize:
+    collection:
+      theme:
+        Alcohol: "Alcohol"
+        Animals: "Animals"
+        Badges: "Badges"
+        Balls: "Soccer Balls"
+        Books: "Books"
+        Calendars: "Calendars"
+        Cards: "Postcards"
+        Coins: "Coins"
+        Figurines: "Figurines"
+        Gems: "Gems"
+        Keys: "Keys"
+        Marks: "Post Stamps"
+        Shells: "Shells"
+        Tickets: "Tickets"
+        Toys: "Toys"
+        Trinkets: "Trinkets"
+        

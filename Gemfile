@@ -21,6 +21,8 @@ gem 'carrierwave', '~> 2.0'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'http_accept_language'
 
+gem 'enumerize'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
 gem 'sassc', '~> 2.1.0'
