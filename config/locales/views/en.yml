@@ -1,0 +1,9 @@
+en:
+  welcome:
+    index:
+      welcome: "Welcome to collections site!"
+      save: "Save language"
+      logged: "You're now logged in as"
+      office: "My collections"
+      anon: "You're now viewing this site as anonymous user"
+      userslist: "Another users collections here"

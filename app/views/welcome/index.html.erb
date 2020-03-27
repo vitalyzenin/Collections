@@ -1,17 +1,17 @@
-<h1>Welcome to Collections site</h1>
+<h1><%= t '.welcome' %></h1>
 
 <% if user_signed_in? %>
   <%= form_for current_user, url: user_path(current_user), method: :put do |form| %>
     <%= form.radio_button :locale, "en", id: "en" %>
     <%= form.label "English", for: "en" %>
     <%= form.radio_button :locale, "ru", id: "ru" %>
-    <%= form.label "Russian", for: "ru" %>
-    <%= form.submit :save, class: "btn" %>
+    <%= form.label "Русский", for: "ru" %>
+    <%= form.submit t '.save', class: "btn" %>
   <% end %>
-  <p>You're now logged in as <%= current_user.email %></p>
-  <p><%= link_to 'My collections', user_path(current_user) %></p>
+  <p><%= t '.logged' %> <%= current_user.email %></p>
+  <p><%= link_to (t '.office'), user_path(current_user) %></p>
 <% else %>
-  <p>You're now viewing this site as anonymous user</p>
+  <p><%= t '.anon' %></p>
 <% end %>
 
-<p><%= link_to 'Another users collections here', users_path %></p>
+<p><%= link_to (t '.userslist'), users_path %></p>
