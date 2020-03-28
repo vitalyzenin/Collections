@@ -18,6 +18,8 @@ en:
       name: "Collection name:"
       description: "Description:"
       theme: "Theme:"
+      picture: "Add image"
+      remove_picture: "Remove image"
       view: "To the collection page"
       warning: "name should be unique and 3 characters length at minimum"
       create: "Create Collection"

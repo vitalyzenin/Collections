@@ -13,7 +13,8 @@ class CollectionsController < CrudController
 
   def update
     @host_user = User.find(params[:user_id])
-    @collection = current_user.collections.update(collection_params)
+    @collection = current_user.collections.find(params[:id])
+    @collection = @collection.update(collection_params)
     redirect_to user_path(current_user)
   end
 
@@ -25,6 +26,6 @@ class CollectionsController < CrudController
 
   private
     def collection_params
-      params.require(:collection).permit(:name, :description, :theme)
+      params.require(:collection).permit(:name, :description, :theme, :picture)
     end
 end

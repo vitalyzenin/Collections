@@ -1,9 +1,9 @@
-<%= form_for Collection.new, url: user_collections_path(current_user), method: :create do |form| %>
+<%= form_for Collection.new, url: user_collections_path(current_user), html: { multipart: true }, method: :create do |form| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <p>
     <%= form.label t 'collections.show.name' %><br>
     <%= form.text_field :name %><br>
-    <%= t 'collections.show.warning' %>
+    <i><%= t 'collections.show.warning' %></i>
   </p>
   <p>
     <%= form.label t 'collections.show.description' %><br>
@@ -12,6 +12,10 @@
   <p>
     <%= form.label t 'collections.show.theme' %><br>
     <%= form.select(:theme, Collection.theme.options) %>
+  </p>
+  <p>
+    <%= form.label t 'collections.show.picture' %><br>
+    <%= form.file_field :picture %>
   </p>
   <%= form.submit t 'collections.show.create' %>
 <% end %>

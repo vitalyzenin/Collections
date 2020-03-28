@@ -1,22 +1,40 @@
 <% current_user.collections.each do |collection| %>
-  <%= form_for collection, url: user_collection_path(current_user, collection), method: :put do |form| %>
-    <p>
-      <%= form.label t 'collections.show.name' %><br>
-      <%= form.text_field :name %><br>
-      <%= t 'collections.show.warning' %>
-    </p>
-    <p>
-      <%= form.label t 'collections.show.description' %><br>
-      <%= form.text_area :description %>
-    </p>
-    <p>
-      <%= form.label t 'collections.show.theme' %><br>
-      <%= form.select(:theme, Collection.theme.options) %>
-    </p>
-    <p>
-      <%= form.submit t 'collections.show.update', class: "btn" %>
-      <%= link_to (t 'collections.show.remove'), user_collection_path(current_user, collection), method: :delete, class: "btn" %>
-      <%= link_to (t 'collections.show.view'), user_collection_path(@host_user, collection) %>
-    </p>
-  <% end %>
+  <div>
+    <%= form_for collection, url: user_collection_path(current_user, collection), html: { multipart: true }, method: :put do |form| %>
+    <h3><%= t('collections.show.header', collection_name: collection.name) %></h3>
+      <p>
+        <%= form.label t 'collections.show.name' %><br>
+        <%= form.text_field :name %><br>
+        <i><%= t 'collections.show.warning' %></i>
+      </p>
+      <p>
+        <%= form.label t 'collections.show.description' %><br>
+        <%= form.text_area :description %>
+      </p>
+      <p>
+        <%= form.label t 'collections.show.theme' %><br>
+        <%= form.select(:theme, Collection.theme.options) %>
+      </p>
+      <p>
+        <%= form.label t 'collections.show.picture' %><br>
+        <%= form.file_field :picture %>
+      </p>
+      <% if !collection.picture.file.nil? %>
+        <p>
+          <%= image_tag collection.picture.url %>
+        </p>
+        <p>
+          <label>
+            <%= form.check_box :remove_picture %>
+            <%= t 'collections.show.remove_picture' %>
+          </label>
+        </p>
+      <% end %>
+      <p>
+        <%= form.submit t 'collections.show.update', class: "btn" %>
+        <%= link_to (t 'collections.show.remove'), user_collection_path(current_user, collection), method: :delete, class: "btn" %>
+        <%= link_to (t 'collections.show.view'), user_collection_path(@host_user, collection) %>
+      </p>
+    <% end %>
+  </div>
 <% end %>

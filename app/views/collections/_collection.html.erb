@@ -1,6 +1,6 @@
 <div>
   <p>
-    <strong><%= t 'collections.show.name' %></strong>
+    <h3><%= t 'collections.show.name' %></h3>
     <%= collection.name %>
   </p>
   <p>
@@ -11,6 +11,11 @@
     <strong><%= t 'collections.show.theme' %></strong>
     <%= collection.theme %>
   </p>
+  <% if !collection.picture.file.nil? %>
+    <p>
+      <%= image_tag collection.picture.url %>
+    </p>
+  <% end %>
   <p>
     <%= link_to (t 'collections.show.view'), user_collection_path(@host_user, collection) %>
   </p>
