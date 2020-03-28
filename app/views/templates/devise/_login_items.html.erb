@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
   <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  <%= link_to((t 'templates.logout'), destroy_user_session_path, method: :delete) %>        
   </li>
 <% else %>
   <li>
-  <%= link_to('Login', new_user_session_path) %>  
+  <%= link_to((t 'users.shared.log_in'), new_user_session_path) %>  
   </li>
 <% end %>

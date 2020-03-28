@@ -1,0 +1,32 @@
+en:
+  users:
+    registrations:
+      edit:
+        edit: "Edit information about you"
+        info_pass_blank: "(leave blank if you don't want to change it)"
+        current_password: "current_password"
+        info_pass_why: "(we need your current password to confirm your changes)"
+        update: "Update information"
+        cancel: "Cancel my account"
+        unhappy: "Unhappy?"
+        cancel_btn: "Cancel my account"
+        sure: "Are you sure?"
+        back: "Back"
+      new:
+        sign_up: "Sign Up"
+        sign_up_btn: "Sign up"
+    sessions:
+      new:
+        log_in: "Log In"
+        remember_me: "remember_me"
+        log_in_btn: "Log in"
+    shared:
+      email: "email"
+      password: "password"
+      pass_length: "%{min} characters minimum"
+      password_confirmation: "password_confirmation"
+      log_in: "Log in"
+      sign_up: :Sign Up
+  templates:
+    logout: "Logout"
+    edit: "My Account"

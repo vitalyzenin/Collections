@@ -1,0 +1,32 @@
+ru:
+  users:
+    registrations:
+      edit:
+        edit: "Редактирование информации о себе"
+        info_pass_blank: "(оставьте поле пустым, если не хотите менять его)"
+        current_password: "текущий пароль"
+        info_pass_why: "(необходимо его ввести для сохранения изменений)"
+        update: "Обновить информацию"
+        cancel: "Удалить аккаунт"
+        unhappy: "Не понравилось?"
+        cancel_btn: "Удалить"
+        sure: "Вы уверены?"
+        back: "Назад"
+      new:
+        sign_up: "Зарегистрироваться"
+        sign_up_btn: "Зарегистрироваться"
+    sessions:
+      new:
+        log_in: "Войти"
+        remember_me: "запомнить меня"
+        log_in_btn: "Войти"
+    shared:
+      email: "Электронная почта"
+      password: "пароль"
+      pass_length: "минимум %{min} знаков"
+      password_confirmation: "введите пароль ещё раз"
+      log_in: "Войти"
+      sign_up: "Зарегистрироваться"
+  templates:
+    logout: "Выйти"
+    edit: "Личный кабинет"
