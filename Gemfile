@@ -20,6 +20,7 @@ gem 'puma', '~> 4.1'
 
 gem 'carrierwave', '~> 2.0'
 gem "fog-aws"
+gem 'carrierwave-i18n'
 
 gem 'rails-i18n', '~> 6.0.0'
 gem 'http_accept_language'
