@@ -8,3 +8,35 @@
 <% end %>
 
 <h1><%= t '.users_list' %></h1>
+
+<% if user_signed_in? and current_user.admin? %>
+  <table class = "table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Created</th>
+        <th>Last Login</th>
+        <th>User Status</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.current_sign_in_at %></td>
+        <% if user.blocked %>
+          <td class="text-danger"><%= "Blocked" %></td>
+        <% else %>
+          <td class="text-success"><%= "Active" %></td>
+        <% end %>
+        <td><%= link_to (t 'links.view'), masquerade_path(user) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

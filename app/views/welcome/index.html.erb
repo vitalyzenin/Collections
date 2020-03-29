@@ -15,3 +15,7 @@
 <% end %>
 
 <p><%= link_to (t '.userslist'), users_path %></p>
+
+<% if user_masquerade? %>
+  <%= link_to "reverse masquerade", back_masquerade_path(current_user) %>
+<% end %>
