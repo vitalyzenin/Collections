@@ -1,12 +1,3 @@
-<p><%= link_to (t 'links.home'), root_path %></p>
-
-<% if user_signed_in? %>
-  <p><%= t('info.logged', who_am_i: current_user.email) %></p>
-  <p><%= link_to (t 'links.office'), user_path(current_user) %></p>
-<% else %>
-  <p><%= t 'info.anon' %></p>
-<% end %>
-
 <h1><%= t '.users_list' %></h1>
 
 <% if user_signed_in? and current_user.admin? %>

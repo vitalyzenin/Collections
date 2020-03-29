@@ -1,7 +1,4 @@
-<p><%= link_to (t 'links.home'), root_path %></p>
-
 <% if user_signed_in? %>
-  <p><%= t('info.logged', who_am_i: current_user.email) %></p>
   <% if @host_user.id == current_user.id %>
     <h1><%= t '.your' %></h1>
     <h2><%= t '.add' %></h2>
@@ -9,8 +6,6 @@
     <h2><%= t '.collections' %></h2>
     <%= render 'collections/formupdate' %>
   <% end %>
-<% else %>
-  <p><%= t 'info.anon' %></p>
 <% end %>
 
 <% if !user_signed_in? or (@host_user.id != current_user.id) %>

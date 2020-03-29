@@ -2,7 +2,6 @@ en:
   welcome:
     index:
       welcome: "Welcome to collections site!"
-      save: "Save language"
       userslist: "Another users collections here"
   users:
     index:
@@ -27,9 +26,12 @@ en:
       remove: "Remove Collection"
       back: "back"
       header: "Collection %{collection_name}"
-  links:
+  shared:
     home: "Homepage"
     office: "My collections"
+    save: "Save language"
+    russian: "Русский"
+    reverse: "Logout as %{as_who}"
   info:
     logged: "You're now logged in as %{who_am_i}"
     anon: "You're now viewing this site as anonymous user"

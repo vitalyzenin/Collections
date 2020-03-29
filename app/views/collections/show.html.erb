@@ -1,13 +1,5 @@
-<p><%= link_to (t 'links.home'), root_path %></p>
 <p><%= link_to (t '.back'), user_path(@host_user) %></p>
 <h1><%= t('.header', collection_name: @collection.name) %></h1>
-
-<% if user_signed_in? %>
-  <p><%= t('info.logged', who_am_i: current_user.email) %></p>
-  <p><%= link_to (t 'links.office'), user_path(current_user) %></p>
-<% else %>
-  <p><%= t 'info.anon' %></p>
-<% end %>
 
 <div>
   <p>

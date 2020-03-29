@@ -2,7 +2,6 @@ ru:
   welcome:
     index:
       welcome: "Добро пожаловать на сайт коллекций!"
-      save: "Сохранить язык"
       userslist: "Коллекции других пользователей здесь"
   users:
     index:
@@ -27,9 +26,12 @@ ru:
       remove: "Удалить коллекцию"
       back: "назад"
       header: "Коллекция %{collection_name}"
-  links:
+  shared:
     home: "Главная страница"
     office: "Мои коллекции"
+    save: "Сохранить язык"
+    russian: "Русский"
+    reverse: "Выйти как %{as_who}"
   info:
     logged: "Вы вошли как %{who_am_i}"
     anon: "Вы сейчас просматриваете этот сайт как аноним"

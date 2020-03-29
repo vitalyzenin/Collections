@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <% if user_masquerade? %>
+    <p class="warning"><%= t('info.logged', who_am_i: current_user.email) %></p>
+    <p><%= link_to t('shared.reverse', as_who: current_user.email), back_masquerade_path(current_user) %></p>
+  <% else %>
+    <p><%= t('info.logged', who_am_i: current_user.email) %></p>
+  <% end %>
+<% else %>
+  <p><%= t 'info.anon' %></p>
+<% end %>

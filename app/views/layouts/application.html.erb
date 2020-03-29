@@ -10,10 +10,16 @@
   </head>
 
   <body>
-    <ul class="hmenu">
-      <%= render 'templates/devise/registration_items' %>
-      <%= render 'templates/devise/login_items' %>
-    </ul>
+    <nav>
+      <ul class="hmenu">
+        <li><%= link_to (t 'shared.home'), root_path %></li>
+        <%= render 'templates/my_collection_item' %>
+        <%= render 'templates/devise/registration_items' %>
+        <%= render 'templates/devise/login_items' %>
+      </ul>
+    </nav>
+    <%= render 'templates/language_items' %>
+    <%= render 'templates/identity_items' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
