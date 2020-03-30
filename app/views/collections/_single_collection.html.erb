@@ -1,0 +1,15 @@
+<div>
+  <p>
+    <strong><%= t 'collections.show.description' %></strong>
+    <%= @collection.description %>
+  </p>
+  <p>
+    <strong><%= t 'collections.show.theme' %></strong>
+    <%= @collection.theme %>
+  </p>
+  <% if !@collection.picture.file.nil? %>
+    <p>
+      <%= image_tag @collection.picture.url %>
+    </p>
+  <% end %>
+</div>

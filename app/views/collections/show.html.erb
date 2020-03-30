@@ -2,16 +2,5 @@
 <h1><%= t('.header', collection_name: @collection.name) %></h1>
 
 <div>
-  <p>
-    <strong><%= t 'collections.show.name' %></strong>
-    <%= @collection.name %>
-  </p>
-  <p>
-    <strong><%= t 'collections.show.description' %></strong>
-    <%= @collection.description %>
-  </p>
-  <p>
-    <strong><%= t 'collections.show.theme' %></strong>
-    <%= @collection.theme %>
-  </p>
+  <%= render 'collections/single_collection' %>
 </div>
