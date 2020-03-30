@@ -37,14 +37,18 @@
           <td><%= link_to (t 'warning.delete_self'), user_ban_path(user), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %></td>
           <td><%= link_to (t "warning.block_self"), user_ban_path(user), method: :put, data: { confirm: (t 'warning.sure_block') }, class: "btn btn-dark" %></td>
           <td><%= link_to (t 'warning.take_admin_self'), user_privileges_path(user), method: :put, data: { confirm: (t 'warning.sure_admin') }, class: "btn btn-primary" %></td>
-          <td><%= link_to (t 'shared.office'), user_path(user) %></td>
+          <td><%= link_to (t 'shared.office'), user_path(user), class: "btn btn-success" %></td>
           <td></td>
         <% else %>
           <td><%= link_to (t 'shared.delete'), user_ban_path(user), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %></td>
           <td><%= link_to user.blocked ? (t 'shared.unblock') : (t "shared.block"), user_ban_path(user), method: :put, class: "btn btn-dark" %></td>
           <td><%= link_to user.admin ? (t 'shared.take_admin') : (t 'shared.give_admin'), user_privileges_path(user), method: :put, class: "btn btn-primary" %></td>
-          <td><%= link_to (t 'shared.view'), user_path(user) %></td>
-          <td><%= link_to (t 'shared.view_masque'), masquerade_path(user) %></td>
+          <td><%= link_to (t 'shared.view'), user_path(user), class: "btn btn-success" %></td>
+          <td>
+            <% if !user.admin %>
+              <%= link_to (t 'shared.view_masque'), masquerade_path(user), class: "btn btn-warning" %>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
