@@ -47,6 +47,7 @@ en:
     view: "View"
     view_masque: "Login As"
     back: "back"
+    username: "Name:"
   info:
     logged: "You're now logged in as %{who_am_i}"
     anon: "You're now viewing this site as anonymous user"
