@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show, :update] do
       resources :collections, except: [:index, :new, :edit]
+      resource :ban, only: [:update, :destroy]
+      resource :privileges, only: [:update]
     end
   end
 

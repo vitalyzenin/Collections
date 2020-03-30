@@ -10,7 +10,7 @@ en:
         cancel: "Cancel my account"
         unhappy: "Unhappy?"
         cancel_btn: "Cancel my account"
-        sure: "Are you sure?"
+        sure: "You are about to delete account. Are you sure?"
         back: "Back"
       new:
         sign_up: "Sign Up"

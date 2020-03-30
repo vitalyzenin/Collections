@@ -3,7 +3,7 @@
     <%= form.radio_button :locale, "en", id: "en" %>
     <%= form.label "English", for: "en" %>
     <%= form.radio_button :locale, "ru", id: "ru" %>
-    <%= form.label t 'shared.russian', for: "ru" %>
+    <%= form.label (t 'shared.russian'), for: "ru" %>
     <%= form.submit t 'shared.save', class: "btn" %>
   <% end %>
 <% end %>

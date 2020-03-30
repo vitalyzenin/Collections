@@ -1,0 +1,52 @@
+  <table class = "table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th><%= t 'users.index.name' %></th>
+        <th>Email</th>
+        <th><%= t 'users.index.created' %></th>
+        <th><%= t 'users.index.last' %></th>
+        <th><%= t 'users.index.status' %></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= l user.created_at, format: :long %></td>
+        <td><%= l user.current_sign_in_at, format: :long %></td>
+        <% if user.blocked %>
+          <td class="text-danger"><%= t "users.index.blocked" %></td>
+        <% else %>
+          <td class="text-success"><%= t "users.index.active" %></td>
+        <% end %>
+        <td>
+        <% if user.admin %>
+          <%= t 'users.index.admin' %>
+        <% end %>
+        </td>
+        <% if (user == current_user) %>
+          <td><%= link_to (t 'warning.delete_self'), user_ban_path(user), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %></td>
+          <td><%= link_to (t "warning.block_self"), user_ban_path(user), method: :put, data: { confirm: (t 'warning.sure_block') }, class: "btn btn-dark" %></td>
+          <td><%= link_to (t 'warning.take_admin_self'), user_privileges_path(user), method: :put, data: { confirm: (t 'warning.sure_admin') }, class: "btn btn-primary" %></td>
+          <td><%= link_to (t 'shared.office'), user_path(user) %></td>
+          <td></td>
+        <% else %>
+          <td><%= link_to (t 'shared.delete'), user_ban_path(user), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %></td>
+          <td><%= link_to user.blocked ? (t 'shared.unblock') : (t "shared.block"), user_ban_path(user), method: :put, class: "btn btn-dark" %></td>
+          <td><%= link_to user.admin ? (t 'shared.take_admin') : (t 'shared.give_admin'), user_privileges_path(user), method: :put, class: "btn btn-primary" %></td>
+          <td><%= link_to (t 'shared.view'), user_path(user) %></td>
+          <td><%= link_to (t 'shared.view_masque'), masquerade_path(user) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  

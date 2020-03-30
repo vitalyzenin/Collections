@@ -6,6 +6,13 @@ en:
   users:
     index:
       users_list: "Users List"
+      blocked: "Blocked"
+      active: "Active"
+      admin: "Administrator"
+      name: "Name"
+      created: "Created at"
+      last: "Last Login"
+      status: "Status"
     show:
       your: "Your Collections"
       add: "Add collection"
@@ -24,7 +31,6 @@ en:
       create: "Create Collection"
       update: "Update Collection"
       remove: "Remove Collection"
-      back: "back"
       header: "Collection %{collection_name}"
   shared:
     home: "Homepage"
@@ -32,6 +38,22 @@ en:
     save: "Save language"
     russian: "Русский"
     reverse: "Logout as %{as_who}"
+    sure: "Are you sure?"
+    delete: "Delete"
+    block: "Block"
+    unblock: "Unblock"
+    give_admin: "Provide admin privileges"
+    take_admin: "Recall admin privileges"
+    view: "View"
+    view_masque: "Login As"
+    back: "back"
   info:
     logged: "You're now logged in as %{who_am_i}"
     anon: "You're now viewing this site as anonymous user"
+  warning:
+    delete_self: "Delete my account"
+    block_self: "Block my account"
+    take_admin_self: "Stop administering"
+    sure_block: "You are about to block yourself. Are you sure?"
+    sure_admin: "You are about to become ordinary user. Are you sure?"
+    

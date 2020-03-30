@@ -1,0 +1,30 @@
+  <table class = "table">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= t 'users.index.name' %></th>
+        <th>Email</th>
+        <th><%= t 'users.index.status' %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <% if user.blocked %>
+          <td class="text-danger"><%= t "users.index.blocked" %></td>
+        <% else %>
+          <td class="text-success"><%= t "users.index.active" %></td>
+        <% end %>
+        <td>
+        <% if user.admin %>
+          <%= t 'users.index.admin' %>
+        <% end %>
+        </td>
+        <td><%= link_to (t 'shared.view'), user_path(user) %></td>
+      </tr>
+    <% end %>
+  </table>
+  

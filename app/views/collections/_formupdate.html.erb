@@ -32,7 +32,7 @@
       <% end %>
       <p>
         <%= form.submit t 'collections.show.update', class: "btn" %>
-        <%= link_to (t 'collections.show.remove'), user_collection_path(current_user, collection), method: :delete, class: "btn" %>
+        <%= link_to (t 'collections.show.remove'), user_collection_path(@host_user, collection), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
         <%= link_to (t 'collections.show.view'), user_collection_path(@host_user, collection) %>
       </p>
     <% end %>
