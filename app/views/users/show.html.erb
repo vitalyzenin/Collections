@@ -1,22 +1,24 @@
-<p><%= link_to (t 'shared.back'), :back %></p>
+<div class="container">
+  <p><%= link_to (t 'shared.back'), :back %></p>
 
-<% if user_signed_in? %>
-  <% if @host_user.id == current_user.id %>
-    <h1><%= t '.your' %></h1>
-    <% if !current_user.blocked %>
-      <h2><%= t '.add' %></h2>
-      <%= render 'collections/formnew' %>
-      <h2><%= t '.collections' %></h2>
-      <%= render 'collections/formupdate' %>
-    <% else %>
-      <%= render @host_user.collections %>
+  <% if user_signed_in? %>
+    <% if @host_user.id == current_user.id %>
+      <h1><%= t '.your' %></h1>
+      <% if !current_user.blocked %>
+        <h2><%= t '.add' %></h2>
+        <%= render 'collections/formnew' %>
+        <h2><%= t '.collections' %></h2>
+        <%= render 'collections/formupdate' %>
+      <% else %>
+        <%= render @host_user.collections %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<% if !user_signed_in? or (@host_user.id != current_user.id) %>
-  <h1><%= t '.other' %></h1>
-  <p><%= t('.host_user', who_it: @host_user.email) %></p>
-  <h2><%= t '.collections' %></h2>
-  <%= render @host_user.collections %>
-<% end %>
+  <% if !user_signed_in? or (@host_user.id != current_user.id) %>
+    <h1><%= t '.other' %></h1>
+    <p><%= t('.host_user', who_it: @host_user.email) %></p>
+    <h2><%= t '.collections' %></h2>
+    <%= render @host_user.collections %>
+  <% end %>
+</div>

@@ -21,16 +21,17 @@
     <title>Collections</title>
   </head>
 
-  <body class="container">
-    <nav>
-      <ul class="hmenu">
-        <li><%= link_to (t 'shared.home'), root_path %></li>
-        <%= render 'templates/my_collection_item' %>
-        <%= render 'templates/devise/registration_items' %>
-        <%= render 'templates/devise/login_items' %>
-      </ul>
+  <body>
+    <nav class="navbar navbar-light d-flex justify-content-end" style="background-color: #aed581;">
+      <%= render 'templates/language_items' %>
+        <ul class="hmenu">
+          <li class="nav-item p-2"><%= link_to (t 'shared.home'), root_path %></li>
+          <%= render 'templates/my_collection_item' %>
+          <%= render 'templates/devise/registration_items' %>
+          <%= render 'templates/devise/login_items' %>
+        </ul>
     </nav>
-    <%= render 'templates/language_items' %>
+
     <%= render 'templates/identity_items' %>
 
     <p class="notice"><%= notice %></p>

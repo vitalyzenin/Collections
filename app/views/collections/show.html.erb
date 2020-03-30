@@ -1,6 +1,8 @@
-<p><%= link_to (t 'shared.back'), :back %></p>
-<h1><%= t('.header', collection_name: @collection.name) %></h1>
+<div class="container">
+  <p><%= link_to (t 'shared.back'), :back %></p>
+  <h1><%= t('.header', collection_name: @collection.name) %></h1>
 
-<div>
-  <%= render 'collections/single_collection' %>
+  <div>
+    <%= render 'collections/single_collection' %>
+  </div>
 </div>
