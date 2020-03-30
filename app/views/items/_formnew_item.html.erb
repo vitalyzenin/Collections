@@ -1,0 +1,9 @@
+<%= form_for Item.new, url: user_collection_items_path(current_user, @collection), method: :create do |form| %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <p>
+    <%= form.label t 'items.index.name' %><br>
+    <%= form.text_field :name %><br>
+    <i><%= t 'items.index.warning' %></i>
+  </p>
+  <%= form.submit t 'items.index.create' %>
+<% end %>

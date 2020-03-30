@@ -32,6 +32,19 @@ en:
       update: "Update Collection"
       remove: "Remove Collection"
       header: "Collection %{collection_name}"
+      add: "Add Item"
+      items: "Items List"
+      my_col: "This collection belongs to you"
+      host_user: "This collection belongs to %{to_whom}"
+  items:
+    index:
+      name: "Item name:"
+      warning: "name should be unique and 3 characters length at minimum"
+      create: "Create Item"
+      item: "Item %{item_name}"
+      update: "Update Item"
+      remove: "Delete Item"
+      view: "To the item page"
   shared:
     home: "Homepage"
     office: "My collections"

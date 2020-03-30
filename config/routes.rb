@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { masquerades: "masquerades", registrations: "users/registrations" }
 
     resources :users, only: [:index, :show, :update] do
-      resources :collections, except: [:index, :new, :edit]
+      resources :collections, except: [:index, :new, :edit] do
+        resources :items, except: [:index, :new, :edit]
+      end
       resource :ban, only: [:update, :destroy]
       resource :privileges, only: [:update]
     end
