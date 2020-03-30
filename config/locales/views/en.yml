@@ -50,6 +50,7 @@ en:
   info:
     logged: "You're now logged in as %{who_am_i}"
     anon: "You're now viewing this site as anonymous user"
+    logged_banned: "You're now logged in as %{who_am_i}. You are banned!"
   warning:
     delete_self: "Delete my account"
     block_self: "Block my account"

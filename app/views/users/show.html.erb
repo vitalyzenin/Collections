@@ -3,10 +3,14 @@
 <% if user_signed_in? %>
   <% if @host_user.id == current_user.id %>
     <h1><%= t '.your' %></h1>
+    <% if !current_user.blocked %>
     <h2><%= t '.add' %></h2>
     <%= render 'collections/formnew' %>
     <h2><%= t '.collections' %></h2>
     <%= render 'collections/formupdate' %>
+    <% else %>
+    <%= render @host_user.collections %>
+    <% end %>
   <% end %>
 <% end %>
 

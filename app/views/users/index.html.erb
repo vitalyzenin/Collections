@@ -1,6 +1,6 @@
 <h1><%= t '.users_list' %></h1>
 
-<% if user_signed_in? and current_user.admin? %>
+<% if user_signed_in? and current_user.admin and !current_user.blocked %>
   <%= render 'users/admin_dashboard' %>
 <% else%>
   <%= render 'users/users' %>

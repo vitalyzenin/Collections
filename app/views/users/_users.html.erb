@@ -23,7 +23,11 @@
           <%= t 'users.index.admin' %>
         <% end %>
         </td>
-        <td><%= link_to (t 'shared.view'), user_path(user) %></td>
+        <% if (user == current_user) %>
+          <td><%= link_to (t 'shared.office'), user_path(user) %></td>
+        <% else %>
+          <td><%= link_to (t 'shared.view'), user_path(user) %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>

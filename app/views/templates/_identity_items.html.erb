@@ -3,7 +3,11 @@
     <p class="text-warning"><%= t('info.logged', who_am_i: current_user.email) %></p>
     <p><%= link_to t('shared.reverse', as_who: current_user.email), back_masquerade_path(current_user) %></p>
   <% else %>
-    <p><%= t('info.logged', who_am_i: current_user.email) %></p>
+    <% if current_user.blocked %>
+      <p class="text-danger"><%= t('info.logged_banned', who_am_i: current_user.email) %></p>
+    <% else %>
+      <p><%= t('info.logged', who_am_i: current_user.email) %></p>
+    <% end %>
   <% end %>
 <% else %>
   <p><%= t 'info.anon' %></p>
