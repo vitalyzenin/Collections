@@ -16,7 +16,8 @@ class UsersController < CrudController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:locale)
-    end
+  
+  def user_params
+    params.require(:user).permit(:locale)
+  end
 end
