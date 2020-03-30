@@ -1,4 +1,5 @@
 class UsersController < CrudController
+
   def index
     @users = User.all.order(id: :asc)
   end
@@ -6,6 +7,8 @@ class UsersController < CrudController
   def show
     @host_user = User.find(params[:id])
   end
+
+  skip_before_action :block_bad_users!
 
   def update
     current_user.update(user_params)
