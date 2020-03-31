@@ -7,3 +7,17 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+body.dark { background-color: #333333; }
+body.dark { p { color: white; } }
+body.dark { td { color: white; } }
+body.dark { h1 { color: white; } }
+body.dark { h2 { color: white; } }
+body.dark { h3 { color: white; } }
+body.dark { nav { background-color: #212121; } }
+body.dark { label { color: white; } }
+body.dark { i { color: white; } }
+
+body.light { background-color: white; }
+body.light { p { color: #333333; } }
+body.light { nav { background-color: #80cbc4; } }

@@ -21,8 +21,8 @@
     <title>Collections</title>
   </head>
 
-  <body>
-    <nav class="navbar navbar-light d-flex justify-content-end" style="background-color: #aed581;">
+  <body class="<%= current_user ? current_user.theme : 'light' %>">
+    <nav class="navbar navbar-light d-flex justify-content-end">
       <%= render 'templates/setting_items' %>
         <ul class="hmenu">
           <li class="nav-item p-2"><%= link_to (t 'shared.home'), root_path %></li>
