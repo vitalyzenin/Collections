@@ -48,8 +48,10 @@ en:
   shared:
     home: "Homepage"
     office: "My collections"
-    save: "Save language"
+    save: "Save settings"
     russian: "Русский"
+    light: "Light Theme"
+    dark: "Dark Theme"
     reverse: "Logout as %{as_who}"
     sure: "Are you sure?"
     delete: "Delete"

@@ -4,6 +4,12 @@
     <%= form.label "English", for: "en" %>
     <%= form.radio_button :locale, "ru", id: "ru" %>
     <%= form.label (t 'shared.russian'), for: "ru" %>
-    <%= form.submit t 'shared.save', class: "btn" %>
+
+    <%= form.radio_button :theme, "light", id: "light" %>
+    <%= form.label (t 'shared.light'), for: "light" %>
+    <%= form.radio_button :theme, "dark", id: "dark" %>
+    <%= form.label (t 'shared.dark'), for: "dark" %>
+
+    <%= form.submit (t 'shared.save'), class: "btn btn-outline-success my-2" %>
   <% end %>
 <% end %>
