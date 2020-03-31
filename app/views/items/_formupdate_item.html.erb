@@ -8,6 +8,10 @@
         <i><%= t 'items.index.warning' %></i>
       </p>
       <p>
+        <%= form.text_field :tag_list, value: item.send(:tag_list).to_s %>
+        <%= item.tag_list %>
+      </p>
+      <p>
         <%= form.submit t 'items.index.update', class: "btn" %>
         <%= link_to (t 'items.index.remove'), user_collection_item_path(current_user, @collection, item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
         <%= link_to (t 'items.index.view'), user_collection_item_path(current_user, @collection, item) %>

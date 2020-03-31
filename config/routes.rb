@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/results', to: 'search#tags'
   get '/:locale' => 'welcome#index'
   root to: "welcome#index"
 end

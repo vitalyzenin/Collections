@@ -37,6 +37,6 @@ class ItemsController < CrudController
 
   private
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :tag_list)
   end
 end
