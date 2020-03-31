@@ -30,6 +30,8 @@ gem 'http_accept_language'
 
 gem 'enumerize'
 
+gem 'acts-as-taggable-on', '~> 6.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
 gem 'sassc', '~> 2.1.0'
