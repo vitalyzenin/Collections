@@ -1,4 +1,5 @@
 class ItemsController < CrudController
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
   
   def show
     @host_user = User.find(params[:user_id])

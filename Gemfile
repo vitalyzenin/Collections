@@ -31,6 +31,9 @@ gem 'http_accept_language'
 gem 'enumerize'
 
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
