@@ -2,11 +2,7 @@ class BansController < AdminController
 
   def update
     user = User.find(params[:user_id])
-    if (user.blocked == true)
-      user.update(blocked: false)
-    else
-      user.update(blocked: true)
-    end
+    user.update(blocked: !user.blocked)
     redirect_to users_path
   end
 
