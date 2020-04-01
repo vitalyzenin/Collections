@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Project info
 
-Things you may want to cover:
+* This is the course project within the educational course of Itransition company.
 
-* Ruby version
+* It is the standard Ruby on Rails project. You can get it up and running just as for any other Rails project.
 
-* System dependencies
+* Rails version 6.0.2.1
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby version 2.6.5
