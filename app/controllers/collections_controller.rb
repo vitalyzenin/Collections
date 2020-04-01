@@ -26,6 +26,6 @@ class CollectionsController < CrudController
 
   private
   def collection_params
-    params.require(:collection).permit(:name, :description, :theme, :picture, :remove_picture, :content)
+    params.require(:collection).permit(:name, :theme, :picture, :remove_picture, :content)
   end
 end
