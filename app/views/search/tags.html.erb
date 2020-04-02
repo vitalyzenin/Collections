@@ -5,7 +5,7 @@
     <p>
       <% collection = Collection.find(item.collection_id) %>
       <% host_user = User.find(collection.user_id) %>
-      <%= link_to (t 'items.index.view'), user_collection_item_path(user_id: host_user, collection_id: collection, id: item) %>
+      <%= link_to (t 'items.index.view'), item_path(item) %>
     </p>
   </div>
 <% end %>

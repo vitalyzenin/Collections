@@ -2,38 +2,33 @@ class ItemsController < CrudController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
   
   def show
-    @host_user = User.find(params[:user_id])
-    @collection = Collection.find(params[:collection_id])
     @item = Item.find(params[:id])
   end
 
   def create
-    host_user = User.find(params[:user_id])
     collection = Collection.find(params[:collection_id])
-    if (host_user.id == current_user.id)
+    if (collection.user == current_user)
       @item = collection.items.create(item_params)
     end
-    redirect_to user_collection_path(host_user, collection)
+    redirect_to collection_path(collection)
   end
 
   def update
-    host_user = User.find(params[:user_id])
+    item = Item.find(params[:id])
     collection = Collection.find(params[:collection_id])
-    @item = Item.find(params[:id])
-    if (host_user.id == current_user.id)
-      @item = @item.update(item_params)
+    if (item.collection.user == current_user)
+      @item = item.update(item_params)
     end
-    redirect_to user_collection_path(host_user, collection)
+    redirect_to collection_path(collection)
   end
 
   def destroy
-    host_user = User.find(params[:user_id])
-    collection = Collection.find(params[:collection_id])
     @item = Item.find(params[:id])
-    if (host_user.id == current_user.id)
+    collection = Collection.find(params[:collection_id])
+    if (@item.collection.user == current_user)
       @item.destroy!
     end
-    redirect_to user_collection_path(host_user, collection)
+    redirect_to collection_path(collection)
   end
 
   private

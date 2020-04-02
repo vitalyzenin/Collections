@@ -1,6 +1,6 @@
 <h3><%= t('items.index.item', item_name: @item.name) %></h3>
 
-<% if user_signed_in? and (current_user.id == @host_user.id) %>
+<% if (current_user == @item.collection.user) %>
   <p>my item</p>
 <% else %>
   <p>not my item</p>

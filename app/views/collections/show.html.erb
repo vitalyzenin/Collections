@@ -2,29 +2,20 @@
   <p><%= link_to (t 'shared.back'), :back %></p>
   <h1><%= t('.header', collection_name: @collection.name) %></h1>
 
-  <% if user_signed_in? and (current_user.id == @host_user.id) %>
+  <% if @collection.user == current_user %>
     <p><%= t('.my_col') %></p>
   <% else %>
-    <p><%= t('.host_user', to_whom: @host_user.email) %></p>
+    <p><%= t('.host_user', to_whom: @collection.user.email) %></p>
   <% end %>
 
   <%= render 'collections/single_collection' %>
 
-  <% if user_signed_in? %>
-    <% if @host_user.id == current_user.id %>
-      <% if !current_user.blocked %>
-        <h2><%= t '.add' %></h2>
-        <%= render 'items/formnew_item' %>
-        <h2><%= t '.items' %></h2>
-        <%= render 'items/formupdate_item' %>
-      <% else %>
-        <h2><%= t '.items' %></h2>
-        <%= render @collection.items %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if !user_signed_in? or (@host_user.id != current_user.id) %>
+  <% if (@collection.user == current_user) and !current_user.blocked %>
+    <h2><%= t '.add' %></h2>
+    <%= render 'items/formnew_item' %>
+    <h2><%= t '.items' %></h2>
+    <%= render 'items/formupdate_item' %>
+  <% else %>
     <h2><%= t '.items' %></h2>
     <%= render @collection.items %>
   <% end %>

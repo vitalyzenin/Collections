@@ -1,6 +1,6 @@
 <div>
   <h3><%= t('items.index.item', item_name: item.name) %></h3>
   <p>
-    <%= link_to (t 'items.index.view'), user_collection_item_path(@host_user, @collection, item) %>
+    <%= link_to (t 'items.index.view'), item_path(item) %>
   </p>
 </div>

@@ -6,5 +6,4 @@
   <% tag_cloud(@tags, %w(h4 h3 h2 h1)) do |tag, css_class| %>
     <%= link_to tag, results_path(tag: tag.name), class: css_class %>
   <% end %>
-
 </div>

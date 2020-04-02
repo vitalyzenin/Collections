@@ -1,4 +1,4 @@
-<%= form_for Collection.new, url: user_collections_path(current_user), html: { multipart: true }, method: :create do |form| %>
+<%= form_for Collection.new, url: collections_path, html: { multipart: true }, method: :create do |form| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <p>
     <%= form.label t 'collections.show.name' %><br>
@@ -17,5 +17,5 @@
     <%= form.label t 'collections.show.picture' %><br>
     <%= form.file_field :picture %>
   </p>
-  <%= form.submit t 'collections.show.create' %>
+  <%= form.submit (t 'collections.show.create'), class: "btn btn-success" %>
 <% end %>
