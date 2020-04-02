@@ -1,7 +1,7 @@
 class CollectionsController < CrudController
   
   def show
-    @collection = Collection.find(params[:id])
+    @collection = Collection.find(params.fetch(:id))
   end
 
   def create
@@ -10,7 +10,7 @@ class CollectionsController < CrudController
   end
 
   def update
-    collection = current_user.collections.find(params[:id])
+    collection = current_user.collections.find(params.fetch(:id))
     if (collection.user == current_user)
       @collection = collection.update(collection_params)
     end
@@ -18,7 +18,7 @@ class CollectionsController < CrudController
   end
 
   def destroy
-    @collection = current_user.collections.find(params[:id])
+    @collection = current_user.collections.find(params.fetch(:id))
     if (@collection.user == current_user)
       @collection.destroy!
     end
