@@ -3,7 +3,7 @@
 
   <p><%= link_to (t '.userslist'), users_path %></p>
 
-  <% tag_cloud(@tags, %w(h1 h2 h3 h4)) do |tag, css_class| %>
+  <% tag_cloud(@tags, %w(h4 h3 h2 h1)) do |tag, css_class| %>
     <%= link_to tag, results_path(tag: tag.name), class: css_class %>
   <% end %>
 

@@ -3,8 +3,8 @@ class ItemsController < CrudController
   
   def show
     @host_user = User.find(params[:user_id])
-    @collection = @host_user.collections.find(params[:collection_id])
-    @item = @collection.items.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
+    @item = Item.find(params[:id])
   end
 
   def create
