@@ -7,13 +7,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-group :development, :test do
-  # Use mysql as the database for Active Record
-  gem 'mysql2', '>= 0.4.4'
-end
-group :production do
-  gem 'pg'
-end
+
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.4.4'
 
 gem 'devise'
 gem 'devise_masquerade'
