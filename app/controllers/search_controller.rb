@@ -1,8 +1,10 @@
 class SearchController < CrudController
 
-  def tags
-    @items = Item.search "lalalala", fields: [:name, :collection_descr], match: :word_middle, misspellings: {below: 2, fields: [:name]}
-    #@items = Item.all
-    #@items = Item.tagged_with(params[:tag])
+  def search
+    if params[:query].present?
+      @items = Item.search params[:query][:query], fields: [:name, :collection_name, :collection_descr], match: :word_middle, misspellings: {below: 2, fields: [:name, :collection_name, :collection_descr]}
+    elsif params[:tag].present?
+      @items = Item.tagged_with(params[:tag])
+    end
   end
 end

@@ -1,6 +1,6 @@
 class CrudController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show, :tags ]
-  before_action :block_bad_users!, except: [ :index, :show, :tags ]
+  before_action :authenticate_user!, except: [ :index, :show, :search ]
+  before_action :block_bad_users!, except: [ :index, :show, :search ]
 
   private
   

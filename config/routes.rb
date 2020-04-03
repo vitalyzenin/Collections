@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/:user_id/collections/items/autocomplete_tag_name', to: 'items#autocomplete_tag_name', as: 'autocomplete'
-  get '/results', to: 'search#tags'
+  get '/results', to: 'search#search'
   get '/:locale' => 'welcome#index'
   root to: "welcome#index"
 end
