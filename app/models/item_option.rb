@@ -4,5 +4,5 @@ class ItemOption < ApplicationRecord
   belongs_to :owner, polymorphic: true
 
   enumerize :option_type, in: [:integer, :string, :text, :date, :bool]
-  validates :name, presence: true, length: { minimum: 3 }
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
 end
