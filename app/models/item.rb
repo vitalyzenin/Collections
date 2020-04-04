@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   acts_as_taggable_on :tags
-  searchkick word_middle: [:name, :collection_name, :collection_descr], word: [:name_tagged], language: "english", callbacks: :async
+  searchkick word_middle: [:name, :collection_name, :collection_descr, :name_tagged], language: "english", callbacks: :async
   scope :search_import, -> { includes(:tags) }
 
   def search_data
