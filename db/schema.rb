@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_115351) do
+ActiveRecord::Schema.define(version: 2020_04_04_142804) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 2020_04_01_115351) do
     t.string "theme"
     t.string "picture"
     t.index ["user_id"], name: "index_collections_on_user_id"
+  end
+
+  create_table "item_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "int_content"
+    t.string "str_content"
+    t.date "date_content"
+    t.boolean "bool_content"
+    t.string "option_type"
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_item_options_uniqueness", unique: true
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

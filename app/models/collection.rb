@@ -6,6 +6,7 @@ class Collection < ApplicationRecord
   has_many :items, dependent: :destroy
   has_rich_text :content
   has_one :rich_for_search, as: :record
+  has_many :item_options, as: :owner
 
   validates :name, presence: true, uniqueness: { scope: :user_id }, length: { minimum: 3 }
 
