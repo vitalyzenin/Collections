@@ -1,22 +1,20 @@
-<% @collection.items.each do |item| %>
-  <div>
-    <%= form_for item, url: collection_item_path(@collection, item), method: :put do |form| %>
-    <h3><%= t('items.index.item', item_name: item.name) %></h3>
-      <p>
-        <%= form.label t 'items.index.name' %><br>
-        <%= form.text_field :name %><br>
-        <i><%= t 'items.index.warning' %></i>
-      </p>
-      <!-- form.autocomplete_field :tag_list, autocomplete_path, 'data-delimiter' => ',', :multiple => true -->
-      <p>
-        <%= form.text_field :tag_list, value: item.send(:tag_list).to_s %>
-        <%= item.tag_list %>
-      </p>
-      <p>
-        <%= form.submit (t 'items.index.update'), class: "btn btn-success" %>
-        <%= link_to (t 'items.index.remove'), collection_item_path(@collection, item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
-        <%= link_to (t 'items.index.view'), item_path(item), class: "btn btn-primary" %>
-      </p>
-    <% end %>
-  </div>
-<% end %>
+<div>
+  <h3><%= t('items.index.item', item_name: @item.name) %></h3>
+  <%= form_for @item, url: collection_item_path(@collection, @item), method: :put do |form| %>
+    <p>
+      <%= form.label t 'items.index.name' %><br>
+      <%= form.text_field :name %><br>
+      <i><%= t 'items.index.warning' %></i>
+    </p>
+    <!-- form.autocomplete_field :tag_list, autocomplete_path, 'data-delimiter' => ',', :multiple => true -->
+    <p>
+      <%= 'Tags:' %>
+      <%= form.text_field :tag_list, value: @item.public_send(:tag_list).to_s %>
+    </p>
+    <p>
+      <%= form.submit (t 'items.index.update'), class: "btn btn-success" %>
+      <%= link_to (t 'items.index.remove'), collection_item_path(@collection, @item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
+      <%= link_to (t 'items.index.view'), item_path(@item), class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>

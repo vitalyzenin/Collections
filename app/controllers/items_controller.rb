@@ -5,6 +5,16 @@ class ItemsController < CrudController
     @item = Item.find(params.fetch(:id))
   end
 
+  def new
+    @collection = current_user.collections.find(params.fetch(:collection_id))
+    @item = Item.new
+  end
+
+  def edit
+    @collection = current_user.collections.find(params.fetch(:collection_id))
+    @item = @collection.items.find(params.fetch(:id))
+  end
+
   def create
     collection = current_user.collections.find(params.fetch(:collection_id))
     if (collection.user == current_user)

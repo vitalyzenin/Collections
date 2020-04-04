@@ -7,8 +7,8 @@ Rails.application.routes.draw do
       resource :ban, only: [:update, :destroy]
       resource :privileges, only: [:update]
     end
-    resources :collections, except: [:index, :new, :edit] do
-      resources :items, except: [:index, :show, :new, :edit]
+    resources :collections, except: [:index] do
+      resources :items, except: [:index, :show]
     end
     resources :items, only: [:show]
   end

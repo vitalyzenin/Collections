@@ -6,7 +6,7 @@
   </p>
   <p>
     <strong><%= t 'collections.show.theme' %></strong>
-    <%= collection.theme %>
+    <%= collection.theme_text %>
   </p>
   <% if !collection.picture.file.nil? %>
     <p>
@@ -16,4 +16,7 @@
   <p>
     <%= link_to (t 'collections.show.view'), collection_path(collection) %>
   </p>
+  <% if user_signed_in? and (@host_user.id == current_user.id) and !current_user.blocked %>
+    <p><%= link_to 'edit', edit_collection_path(collection) %></p>
+  <% end %>
 </div>

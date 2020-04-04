@@ -1,6 +1,11 @@
 <div>
   <h3><%= t('items.index.item', item_name: item.name) %></h3>
   <p>
-    <%= link_to (t 'items.index.view'), item_path(item) %>
+    <%= 'Tags:' %>
+    <%= item.tag_list %>
   </p>
+  <p><%= link_to (t 'items.index.view'), item_path(item) %></p>
+  <% if user_signed_in? and (@collection.user.id == current_user.id) and !current_user.blocked %>
+    <p><%= link_to 'edit', edit_collection_item_path(@collection, item) %></p>
+  <% end %>
 </div>

@@ -4,6 +4,14 @@ class CollectionsController < CrudController
     @collection = Collection.find(params.fetch(:id))
   end
 
+  def new
+    @collection = Collection.new
+  end
+
+  def edit
+    @collection = current_user.collections.find(params.fetch(:id))
+  end
+
   def create
     @collection = current_user.collections.create(collection_params)
     redirect_to user_path(current_user)

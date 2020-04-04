@@ -1,40 +1,38 @@
-<% current_user.collections.each do |collection| %>
-  <div>
-    <%= form_for collection, url: collection_path(collection), html: { multipart: true }, method: :put do |form| %>
-    <h3><%= t('collections.show.header', collection_name: collection.name) %></h3>
+<div>
+  <h3><%= t('collections.show.header', collection_name: @collection.name) %></h3>
+  <%= form_for @collection, url: collection_path(@collection), html: { multipart: true }, method: :put do |form| %>
+    <p>
+      <%= form.label t 'collections.show.name' %><br>
+      <%= form.text_field :name %><br>
+      <i><%= t 'collections.show.warning' %></i>
+    </p>
+    <p>
+      <%= form.label t 'collections.show.description' %><br>
+      <%= form.rich_text_area :content %>
+    </p>
+    <p>
+      <%= form.label t 'collections.show.theme' %><br>
+      <%= form.select(:theme, Collection.theme.options) %>
+    </p>
+    <p>
+      <%= form.label t 'collections.show.picture' %><br>
+      <%= form.file_field :picture %>
+    </p>
+    <% if !@collection.picture.file.nil? %>
       <p>
-        <%= form.label t 'collections.show.name' %><br>
-        <%= form.text_field :name %><br>
-        <i><%= t 'collections.show.warning' %></i>
+        <%= image_tag @collection.picture.url %>
       </p>
       <p>
-        <%= form.label t 'collections.show.description' %><br>
-        <%= form.rich_text_area :content %>
-      </p>
-      <p>
-        <%= form.label t 'collections.show.theme' %><br>
-        <%= form.select(:theme, Collection.theme.options) %>
-      </p>
-      <p>
-        <%= form.label t 'collections.show.picture' %><br>
-        <%= form.file_field :picture %>
-      </p>
-      <% if !collection.picture.file.nil? %>
-        <p>
-          <%= image_tag collection.picture.url %>
-        </p>
-        <p>
-          <label>
-            <%= form.check_box :remove_picture %>
-            <%= t 'collections.show.remove_picture' %>
-          </label>
-        </p>
-      <% end %>
-      <p>
-        <%= form.submit (t 'collections.show.update'), class: "btn btn-success" %>
-        <%= link_to (t 'collections.show.remove'), collection_path(collection), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
-        <%= link_to (t 'collections.show.view'), collection_path(collection), class: "btn btn-primary" %>
+        <label>
+          <%= form.check_box :remove_picture %>
+          <%= t 'collections.show.remove_picture' %>
+        </label>
       </p>
     <% end %>
-  </div>
-<% end %>
+    <p>
+      <%= form.submit (t 'collections.show.update'), class: "btn btn-success" %>
+      <%= link_to (t 'collections.show.remove'), collection_path(@collection), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
+      <%= link_to (t 'collections.show.view'), collection_path(@collection), class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>
