@@ -34,6 +34,8 @@ gem 'rails-jquery-autocomplete'
 
 gem 'searchkick'
 
+gem "cocoon"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 5'
 gem 'sassc', '~> 2.1.0'

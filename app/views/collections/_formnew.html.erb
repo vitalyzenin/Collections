@@ -1,21 +1,32 @@
-<%= form_for @collection, url: collections_path, html: { multipart: true }, method: :create do |form| %>
+<%= form_for @collection, url: collections_path, html: { multipart: true }, method: :create do |f| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <p>
-    <%= form.label t 'collections.show.name' %><br>
-    <%= form.text_field :name %><br>
+    <%= f.label t 'collections.show.name' %><br>
+    <%= f.text_field :name %><br>
     <i><%= t 'collections.show.warning' %></i>
   </p>
   <p>
-    <%= form.label t 'collections.show.description' %><br>
-    <%= form.rich_text_area :content %>
+    <%= f.label t 'collections.show.description' %><br>
+    <%= f.rich_text_area :content %>
   </p>
   <p>
-    <%= form.label t 'collections.show.theme' %><br>
-    <%= form.select(:theme, Collection.theme.options) %>
+    <%= f.label t 'collections.show.theme' %><br>
+    <%= f.select(:theme, Collection.theme.options) %>
   </p>
   <p>
-    <%= form.label t 'collections.show.picture' %><br>
-    <%= form.file_field :picture %>
+    <%= f.label t 'collections.show.picture' %><br>
+    <%= f.file_field :picture %>
   </p>
-  <%= form.submit (t 'collections.show.create'), class: "btn btn-success" %>
+
+  <h3>Fields</h3>
+  <div id='item_options'>
+    <%= f.fields_for :item_options do |option| %>
+      <%= render 'item_option_fields', :f => option %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add field', f, :item_options %>
+    </div>
+  </div>
+
+  <%= f.submit (t 'collections.show.create'), class: "btn btn-success" %>
 <% end %>
