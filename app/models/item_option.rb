@@ -1,4 +1,5 @@
 class ItemOption < ApplicationRecord
+  extend Enumerize
   self.table_name = "item_options"
   belongs_to :owner, polymorphic: true
 
