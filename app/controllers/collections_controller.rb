@@ -1,7 +1,7 @@
 class CollectionsController < CrudController
   
   def show
-    @collection = current_user.collections.preload(items: { item_option_values: :item_option }).find(params[:id])
+    @collection = Collection.preload(items: { item_option_values: :item_option }).find(params.fetch(:id))
   end
 
   def new
