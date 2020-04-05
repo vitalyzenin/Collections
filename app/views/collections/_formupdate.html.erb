@@ -33,7 +33,7 @@
     <h3>Fields</h3>
     <div id='item_options'>
       <%= f.fields_for :item_options do |option| %>
-        <%= render 'item_option_fields', :f => option %>
+        <%= render 'collections/item_options_when_updating', :f => option %>
       <% end %>
       <div class='links'>
         <%= link_to_add_association 'add field', f, :item_options %>

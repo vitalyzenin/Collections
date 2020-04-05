@@ -16,5 +16,8 @@ class Item < ApplicationRecord
   has_one :rich_for_search, :through => :collection
   has_many :item_options, :through => :collection
 
+  has_many :item_option_values, dependent: :destroy
+  accepts_nested_attributes_for :item_option_values, reject_if: :all_blank, allow_destroy: true
+
   validates :name, presence: true, uniqueness: { scope: :collection_id, case_sensitive: true }, length: { minimum: 3 }
 end

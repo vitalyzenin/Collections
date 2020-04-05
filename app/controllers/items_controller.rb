@@ -2,17 +2,26 @@ class ItemsController < CrudController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
   
   def show
-    @item = Item.find(params.fetch(:id))
+    @item = Item.preload(item_option_values: :item_option).find(params.fetch(:id))
+    @collection = @item.collection
   end
 
   def new
     @collection = current_user.collections.find(params.fetch(:collection_id))
     @item = Item.new
+    @collection.item_options.each do |item_option|
+      @item.item_option_values.new(item_option: item_option)
+    end
   end
 
   def edit
     @collection = current_user.collections.find(params.fetch(:collection_id))
     @item = @collection.items.find(params.fetch(:id))
+
+    existing_item_option_ids = @item.item_option_values.pluck(:item_option_id)
+    @collection.item_options.each do |item_option|
+      @item.item_option_values.new(item_option: item_option) unless item_option.id.in?(existing_item_option_ids)
+    end
   end
 
   def create
@@ -43,6 +52,7 @@ class ItemsController < CrudController
 
   private
   def item_params
-    params.require(:item).permit(:name, :tag_list)
+    params.require(:item).permit(:name, :tag_list, item_option_values_attributes: [:id, :int_content, :str_content, :date_content,
+                                                                                   :bool_content, :_destroy, :item_option_id])
   end
 end

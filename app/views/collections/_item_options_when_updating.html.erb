@@ -5,7 +5,7 @@
   </p>
   <p class="field">
     <%= f.label t 'collections.show.theme' %>
-    <%= f.select(:option_type, ItemOption.option_type.options) %>
+    <%= f.select(:option_type, ItemOption.option_type.options, {}, {:disabled => true}) %>
   </p>
   <%= link_to_remove_association "remove field", f %>
 </div>
