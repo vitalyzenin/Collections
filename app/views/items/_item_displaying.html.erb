@@ -1,0 +1,17 @@
+<% case item_option_value.item_option.option_type %>
+  <% when 'integer' %>
+    <p><strong><%= item_option_value.item_option.name %></strong>
+    <%= item_option_value.int_content %></p>
+  <% when 'string' %>
+    <p><strong><%= item_option_value.item_option.name %></strong>
+    <%= item_option_value.str_content %></p>
+  <% when 'date' %>
+    <p><strong><%= item_option_value.item_option.name %></strong>
+    <%= l(item_option_value.date_content.to_date) %></p>
+  <% when 'bool' %>
+    <p><strong><%= item_option_value.item_option.name %></strong>
+    <%= item_option_value.bool_content %></p>
+  <% when 'text' %>
+    <p><strong><%= item_option_value.item_option.name %></strong>
+    <%= item_option_value.text_content %></p>
+<% end %>

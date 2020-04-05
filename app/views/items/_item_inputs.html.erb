@@ -1,0 +1,24 @@
+<%= form.fields_for :item_option_values do |option_input| %>
+  <% case option_input.object.item_option.option_type %>
+    <% when 'integer' %>
+      <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
+      <%= option_input.label option_input.object.item_option.name %>
+      <%= option_input.number_field :int_content %></p>
+    <% when 'string' %>
+      <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
+      <%= option_input.label option_input.object.item_option.name %>
+      <%= option_input.text_field :str_content %></p>
+    <% when 'date' %>
+      <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
+      <%= option_input.label option_input.object.item_option.name %>
+      <%= option_input.date_field :date_content %></p>
+    <% when 'bool' %>
+      <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
+      <%= option_input.check_box :bool_content, id: "#{option_input.object.item_option_id}" %>
+      <%= option_input.label option_input.object.item_option.name, for: "#{option_input.object.item_option_id}" %></p>
+    <% when 'text' %>
+      <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
+      <%= option_input.label option_input.object.item_option.name %>
+      <%= option_input.text_area :text_content %></p>
+  <% end %>
+<% end %>

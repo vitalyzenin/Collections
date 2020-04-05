@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_094506) do
+ActiveRecord::Schema.define(version: 2020_04_05_215533) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_094506) do
     t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_action_text_rich_texts_on_item_id"
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_094506) do
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "text_content"
     t.index ["item_id"], name: "index_item_option_values_on_item_id"
     t.index ["item_option_id"], name: "index_item_option_values_on_item_option_id"
   end

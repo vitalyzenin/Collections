@@ -6,20 +6,7 @@
   </p>
 
   <% item.item_option_values.each do |item_option_value| %>
-    <% case item_option_value.item_option.option_type %>
-      <% when 'integer' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.int_content %></br>
-      <% when 'string' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.str_content %></br>
-      <% when 'date' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= l(item_option_value.date_content.to_date) %></br>
-      <% when 'bool' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.bool_content %></br>
-    <% end %>
+    <%= render 'items/item_displaying', :item_option_value => item_option_value %>
   <% end %>
 
   <p><%= link_to (t 'items.index.view'), item_path(item) %></p>

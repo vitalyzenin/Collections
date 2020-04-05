@@ -3,12 +3,12 @@
   <% @items.each do |item| %>
     <div class='container'>
       <h2><%= t('items.index.item', item_name: item.name) %></h2>
-      <strong><%= 'From collection:' %></strong>
-      <%= item.collection.name %></br>
-      <strong><%= 'Collection description:' %></strong>
-      <%= item.collection.content %></br>
-      <strong><%= 'Tags:' %></strong>
-      <%= item.tag_list %>
+      <p><strong><%= 'From collection:' %></strong>
+      <%= item.collection.name %></p>
+      <p><strong><%= 'Collection description:' %></strong>
+      <%= item.collection.content %></p>
+      <p><strong><%= 'Tags:' %></strong>
+      <%= item.tag_list %></p>
       <p>
         <%= link_to (t 'items.index.view'), item_path(item.id) %>
       </p>

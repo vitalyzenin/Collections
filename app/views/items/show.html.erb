@@ -1,4 +1,5 @@
 <div class='container'>
+  <p><%= link_to (t 'shared.back'), :back %></p>
   <h3><%= t('items.index.item', item_name: @item.name) %></h3>
 
   <% if (current_user == @item.collection.user) %>
@@ -12,20 +13,7 @@
   </p>
   <p>
   <% @item.item_option_values.each do |item_option_value| %>
-    <% case item_option_value.item_option.option_type %>
-      <% when 'integer' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.int_content %></br>
-      <% when 'string' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.str_content %></br>
-      <% when 'date' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= l(item_option_value.date_content.to_date) %></br>
-      <% when 'bool' %>
-        <strong><%= item_option_value.item_option.name %></strong>
-        <%= item_option_value.bool_content %></br>
-    <% end %>
+    <%= render 'items/item_displaying', :item_option_value => item_option_value %>
   <% end %>
   </p>
 </div>

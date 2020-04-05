@@ -9,31 +9,10 @@
     <!-- form.autocomplete_field :tag_list, autocomplete_path, 'data-delimiter' => ',', :multiple => true -->
     <p>
       <%= 'Tags:' %>
-      <%= form.text_field :tag_list, value: @item.public_send(:tag_list).to_s %>
+      <%= form.text_field :tag_list, value: @item.tag_list.to_s %>
     </p>
 
-    <%= form.fields_for :item_option_values do |option_input| %>
-      <% case option_input.object.item_option.option_type %>
-        <% when 'integer' %>
-          <%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
-          <%= option_input.label option_input.object.item_option.name %>
-          <%= option_input.number_field :int_content %>
-        <% when 'string' %>
-          <%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
-          <%= option_input.label option_input.object.item_option.name %>
-          <%= option_input.text_field :str_content %>
-        <% when 'date' %>
-          <%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
-          <%= option_input.label option_input.object.item_option.name %>
-          <%= option_input.date_field :date_content %>
-        <% when 'bool' %>
-          <%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
-          <label>
-            <%= option_input.check_box :bool_content %>
-            <%= option_input.label option_input.object.item_option.name %>
-          </label>
-      <% end %>
-    <% end %>
+    <%= render 'items/item_inputs', :form => form %>
     
     <p>
       <%= form.submit (t 'items.index.update'), class: "btn btn-success" %>

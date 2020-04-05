@@ -52,7 +52,7 @@ class ItemsController < CrudController
 
   private
   def item_params
-    params.require(:item).permit(:name, :tag_list, item_option_values_attributes: [:id, :int_content, :str_content, :date_content,
+    params.require(:item).permit(:name, :tag_list, item_option_values_attributes: [:id, :int_content, :str_content, :date_content, :text_content,
                                                                                    :bool_content, :_destroy, :item_option_id])
   end
 end
