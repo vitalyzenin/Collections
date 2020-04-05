@@ -10,7 +10,7 @@ class Collection < ApplicationRecord
   has_many :item_options, dependent: :destroy
   accepts_nested_attributes_for :item_options, reject_if: :all_blank, allow_destroy: true
 
-  validates :name, presence: true, uniqueness: { scope: :user_id }, length: { minimum: 3 }
+  validates :name, presence: true, uniqueness: { scope: :user_id, case_sensitive: true }, length: { minimum: 3 }
 
   enumerize :theme, in: [:Alcohol, :Animals, :Badges, :Balls,
                         :Books, :Calendars, :Cards, :Coins,
