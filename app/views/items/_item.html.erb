@@ -2,7 +2,7 @@
   <h3><%= t('items.index.item', item_name: item.name) %></h3>
   <p>
     <strong><%= 'Tags:' %></strong>
-    <%= @item.tag_list %>
+    <%= item.tag_list %>
   </p>
 
   <% item.item_option_values.each do |item_option_value| %>
