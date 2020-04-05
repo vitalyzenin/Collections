@@ -14,7 +14,7 @@ class Item < ApplicationRecord
 
   belongs_to :collection
   has_one :rich_for_search, :through => :collection
-  has_many :item_options, as: :owner, :through => :collection
+  has_many :item_options, :through => :collection
 
   validates :name, presence: true, uniqueness: { scope: :collection_id }, length: { minimum: 3 }
 end

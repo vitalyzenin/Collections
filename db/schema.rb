@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_224159) do
+ActiveRecord::Schema.define(version: 2020_04_05_094506) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -54,18 +54,26 @@ ActiveRecord::Schema.define(version: 2020_04_04_224159) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
-  create_table "item_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "item_option_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "int_content"
     t.string "str_content"
     t.date "date_content"
     t.boolean "bool_content"
-    t.string "option_type"
-    t.string "owner_type", null: false
-    t.bigint "owner_id", null: false
+    t.bigint "item_option_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_type", "owner_id", "name"], name: "index_item_options_uniqueness", unique: true
+    t.index ["item_id"], name: "index_item_option_values_on_item_id"
+    t.index ["item_option_id"], name: "index_item_option_values_on_item_option_id"
+  end
+
+  create_table "item_options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "option_type"
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_item_options_on_collection_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -127,5 +135,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_224159) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collections", "users"
+  add_foreign_key "item_option_values", "item_options"
+  add_foreign_key "item_option_values", "items"
+  add_foreign_key "item_options", "collections"
   add_foreign_key "items", "collections"
 end
