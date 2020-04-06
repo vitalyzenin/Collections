@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   acts_as_taggable_on :tags
-  searchkick word_middle: [:name, :collection_name, :collection_descr, :name_tagged], language: "english", callbacks: :async
+  searchkick word_middle: [:name, :collection_name, :collection_descr, :name_tagged, :item_options, :item_value_str, :item_value_text],
+            language: "english", callbacks: :async
+
   scope :search_import, -> { includes(:tags) }
 
   def search_data
@@ -8,6 +10,9 @@ class Item < ApplicationRecord
       name: name,
       collection_name: collection.name,
       collection_descr: rich_for_search&.body,
+      item_options: item_options.pluck(:name),
+      item_value_str: item_option_values.pluck(:str_content),
+      item_value_text: item_option_values.pluck(:text_content),
       name_tagged: "#{name} #{tags.map(&:name).join(" ")}"
     }
   end
