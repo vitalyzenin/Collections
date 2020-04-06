@@ -13,4 +13,22 @@
       <%= link_to tag, results_path(tag: tag.name), class: css_class %>
     <% end %>
   </div>
+
+  <div class="container">
+    <h2><%= t 'welcome.index.latest' %></h2>
+    <% @latest_items.each do |item| %>
+      <h2><%= t('items.index.item', item_name: item.name) %></h2>
+      <p>
+        <strong><%= t 'items.show.from_col' %></strong>
+        <%= item.collection.name %>
+      </p>
+      <p>
+        <strong><%= t 'items.show.created' %></strong>
+        <%= l item.created_at.to_date %>
+      </p>
+      <p>
+        <%= link_to (t 'items.index.view'), item_path(item.id) %>
+      </p>
+    <% end %>
+  </div>
 </div>

@@ -4,6 +4,7 @@ en:
       welcome: "Welcome to the collections site!"
       userslist: "Another users collections here"
       taglist: "Tag Cloud"
+      latest: "The latest Items"
   users:
     index:
       users_list: "Users List"
@@ -60,6 +61,7 @@ en:
       not_my: "This item is from %{to_whom}' collection"
       'yes': "Yes"
       'no': "No"
+      created: "Created:"
   shared:
     home: "Homepage"
     office: "My collections"
