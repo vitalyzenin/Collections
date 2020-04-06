@@ -1,19 +1,29 @@
 <div class='container'>
   <p><%= link_to (t 'shared.back'), :back %></p>
-  <h3><%= t('items.index.item', item_name: @item.name) %></h3>
+  <div class="container">
+    <h3><%= t('items.index.item', item_name: @item.name) %></h3>
 
-  <% if (current_user == @item.collection.user) %>
-    <p>my item</p>
-  <% else %>
-    <p>not my item</p>
-  <% end %>
-  <p>
-    <strong><%= 'Tags:' %></strong>
-    <%= @item.tag_list %>
-  </p>
-  <p>
-  <% @item.item_option_values.each do |item_option_value| %>
-    <%= render 'items/item_displaying', :item_option_value => item_option_value %>
-  <% end %>
-  </p>
+    <% if (current_user == @item.collection.user) %>
+      <p><%= t 'items.show.my_item' %></p>
+    <% else %>
+      <p><%= t('items.show.not_my', to_whom: @item.collection.user.email) %></p>
+    <% end %>
+  </div>
+  <div class="container">
+    <p>
+      <strong><%= t 'items.show.tags' %></strong>
+      <%= @item.tag_list %>
+    </p>
+    <p>
+    <% @item.item_option_values.each do |item_option_value| %>
+      <%= render 'items/item_displaying', :item_option_value => item_option_value %>
+    <% end %>
+    </p>
+  </div>
+  <div class="container">
+    <% if user_signed_in? and (@collection.user.id == current_user.id) and !current_user.blocked %>
+      <%= link_to (t 'items.index.edit'), edit_collection_item_path(@collection, @item), class: "btn btn-success" %>
+      <%= link_to (t 'items.index.remove'), collection_item_path(@collection, @item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
+    <% end %>
+  </div>
 </div>

@@ -1,49 +1,52 @@
 <div>
   <h3><%= t('collections.show.header', collection_name: @collection.name) %></h3>
   <%= form_for @collection, url: collection_path(@collection), html: { multipart: true }, method: :put do |f| %>
-    <p>
-      <%= f.label t 'collections.show.name' %><br>
-      <%= f.text_field :name %><br>
-      <i><%= t 'collections.show.warning' %></i>
-    </p>
-    <p>
-      <%= f.label t 'collections.show.description' %><br>
-      <%= f.rich_text_area :content %>
-    </p>
-    <p>
-      <%= f.label t 'collections.show.theme' %><br>
-      <%= f.select(:theme, Collection.theme.options) %>
-    </p>
-    <p>
-      <%= f.label t 'collections.show.picture' %><br>
-      <%= f.file_field :picture %>
-    </p>
-    <% if !@collection.picture.file.nil? %>
+    <div class="form-group">
       <p>
-        <%= image_tag @collection.picture.url %>
+        <%= f.label t 'collections.show.name' %><br>
+        <%= f.text_field :name %><br>
+        <i><%= t 'collections.show.warning' %></i>
       </p>
       <p>
-        <label>
-          <%= f.check_box :remove_picture %>
-          <%= t 'collections.show.remove_picture' %>
-        </label>
+        <%= f.label t 'collections.show.description' %><br>
+        <%= f.rich_text_area :content %>
       </p>
-    <% end %>
-
-    <h3>Fields</h3>
-    <div id='item_options'>
-      <%= f.fields_for :item_options do |option| %>
-        <%= render 'collections/item_options_when_updating', :f => option %>
+      <p>
+        <%= f.label t 'collections.show.theme' %><br>
+        <%= f.select(:theme, Collection.theme.options) %>
+      </p>
+      <p>
+        <%= f.label t 'collections.show.picture' %><br>
+        <%= f.file_field :picture, class: "form-control-file" %>
+      </p>
+      <% if !@collection.picture.file.nil? %>
+        <p>
+          <%= image_tag @collection.picture.url %>
+        </p>
+        <p>
+          <label class="form-check-label">
+            <%= f.check_box :remove_picture, class: "form-check-input" %>
+            <%= t 'collections.show.remove_picture' %>
+          </label>
+        </p>
       <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'add field', f, :item_options %>
+    </div>
+
+    <div class="form-group">
+      <div id='item_options'>
+        <%= f.fields_for :item_options do |option| %>
+          <%= render 'collections/item_options_when_updating', :f => option %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association (t 'collections.new.add_field'), f, :item_options, class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
 
-    <p>
+    <div class="form-group">
       <%= f.submit (t 'collections.show.update'), class: "btn btn-success" %>
       <%= link_to (t 'collections.show.remove'), collection_path(@collection), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
       <%= link_to (t 'collections.show.view'), collection_path(@collection), class: "btn btn-primary" %>
-    </p>
+    </div>
   <% end %>
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <h3><%= t('collections.show.header', collection_name: collection.name) %></h3>
   <p>
     <strong><%= t 'collections.show.description' %></strong>
@@ -14,9 +14,10 @@
     </p>
   <% end %>
   <p>
-    <%= link_to (t 'collections.show.view'), collection_path(collection) %>
+    <% if user_signed_in? and (@host_user.id == current_user.id) and !current_user.blocked %>
+      <%= link_to (t 'collections.show.edit'), edit_collection_path(collection), class: "btn btn-success" %>
+      <%= link_to (t 'collections.show.remove'), collection_path(collection), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
+    <% end %>
+    <%= link_to (t 'collections.show.view'), collection_path(collection), class: "btn btn-primary" %>
   </p>
-  <% if user_signed_in? and (@host_user.id == current_user.id) and !current_user.blocked %>
-    <p><%= link_to 'edit', edit_collection_path(collection) %></p>
-  <% end %>
 </div>

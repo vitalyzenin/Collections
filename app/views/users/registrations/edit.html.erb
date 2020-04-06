@@ -23,7 +23,7 @@
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>
         <br />
-        <i>(<%= t('users.shared.pass_length', min: @minimum_password_length) %>)</i>
+        <i class="form-text text-muted">(<%= t('users.shared.pass_length', min: @minimum_password_length) %>)</i>
       <% end %>
     </div>
 

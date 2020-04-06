@@ -7,18 +7,18 @@
     <% when 'string' %>
       <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
       <%= option_input.label option_input.object.item_option.name %>
-      <%= option_input.text_field :str_content %></p>
+      <%= option_input.text_field :str_content, class: "form-control" %></p>
     <% when 'date' %>
       <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
       <%= option_input.label option_input.object.item_option.name %>
       <%= option_input.date_field :date_content %></p>
     <% when 'bool' %>
       <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
-      <%= option_input.check_box :bool_content, id: "#{option_input.object.item_option_id}" %>
-      <%= option_input.label option_input.object.item_option.name, for: "#{option_input.object.item_option_id}" %></p>
+      <%= option_input.check_box :bool_content, id: "#{option_input.object.item_option_id}", class: "form-check-input" %>
+      <%= option_input.label option_input.object.item_option.name, for: "#{option_input.object.item_option_id}", class: "form-check-label" %></p>
     <% when 'text' %>
       <p><%= option_input.hidden_field :item_option_id, value: option_input.object.item_option.id %>
       <%= option_input.label option_input.object.item_option.name %>
-      <%= option_input.text_area :text_content %></p>
+      <%= option_input.text_area :text_content, class: "form-control" %></p>
   <% end %>
 <% end %>

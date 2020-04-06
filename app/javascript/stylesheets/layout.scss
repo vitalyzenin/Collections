@@ -40,7 +40,7 @@ ul.hmenu li {
   display: inline;  
 }
 
-body.dark { background-color: #333333; }
+body.dark { background-color: #444444; }
 body.dark { p { color: white; } }
 body.dark { td { color: white; } }
 body.dark { h1 { color: white; } }
@@ -49,6 +49,10 @@ body.dark { h3 { color: white; } }
 body.dark { nav { background-color: #212121; } }
 body.dark { label { color: white; } }
 body.dark { i { color: white; } }
+body.dark { strong { color: white; } }
+body.dark { em { color: white; } }
+body.dark { li { color: white; } }
+body.dark { .trix-content { color: white; } }
 
 body.light { background-color: white; }
 body.light { p { color: #333333; } }

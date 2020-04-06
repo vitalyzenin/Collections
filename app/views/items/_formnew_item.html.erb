@@ -1,16 +1,22 @@
 <%= form_for @item, url: collection_items_path(@collection), method: :create do |form| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <p>
-    <%= form.label t 'items.index.name' %><br>
-    <%= form.text_field :name %><br>
-    <i><%= t 'items.index.warning' %></i>
-  </p>
-  <p>
-    <%= 'Tags:' %>
-    <%= form.text_field :tag_list %>
-  </p>
+  <div class="form-group">
+    <p>
+      <%= form.label t 'items.index.name' %><br>
+      <%= form.text_field :name %><br>
+      <i class="form-text text-muted"><%= t 'items.index.warning' %></i>
+    </p>
+    <p>
+      <%= t 'items.show.tags' %>
+      <%= form.text_field :tag_list %>
+    </p>
+  </div>
 
-  <%= render 'items/item_inputs', :form => form %>
+  <div class="form-group">
+    <%= render 'items/item_inputs', :form => form %>
+  </div>
 
-  <%= form.submit (t 'items.index.create'), class: "btn btn-success" %>
+  <div class="form-group">
+    <%= form.submit (t 'items.index.create'), class: "btn btn-success" %>
+  </div>
 <% end %>

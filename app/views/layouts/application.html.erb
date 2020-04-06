@@ -22,21 +22,28 @@
   </head>
 
   <body class="<%= current_user ? current_user.theme : 'light' %>">
-    <nav class="navbar navbar-light d-flex justify-content-end">
+    <nav class="container-fluid navbar d-flex justify-content-end">
       <%= render 'templates/search_items' %>
       <%= render 'templates/settings_items' %>
+      <div>
         <ul class="hmenu">
           <li class="nav-item p-2"><%= link_to (t 'shared.home'), root_path %></li>
           <%= render 'templates/my_collection_item' %>
+          <%= render 'templates/users_item' %>
           <%= render 'templates/devise/registration_items' %>
           <%= render 'templates/devise/login_items' %>
         </ul>
+      </div>
     </nav>
 
-    <%= render 'templates/identity_items' %>
+    <div class="container">
+      <%= render 'templates/identity_items' %>
+    </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <div class="container">
       <%= yield %>
     </div>

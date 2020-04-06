@@ -1,23 +1,27 @@
 <div>
   <h3><%= t('items.index.item', item_name: @item.name) %></h3>
   <%= form_for @item, url: collection_item_path(@collection, @item), method: :put do |form| %>
-    <p>
-      <%= form.label t 'items.index.name' %><br>
-      <%= form.text_field :name %><br>
-      <i><%= t 'items.index.warning' %></i>
-    </p>
-    <!-- form.autocomplete_field :tag_list, autocomplete_path, 'data-delimiter' => ',', :multiple => true -->
-    <p>
-      <%= 'Tags:' %>
-      <%= form.text_field :tag_list, value: @item.tag_list.to_s %>
-    </p>
+    <div class="form-group">
+      <p>
+        <%= form.label t 'items.index.name' %><br>
+        <%= form.text_field :name %><br>
+        <i><%= t 'items.index.warning' %></i>
+      </p>
+      <!-- form.autocomplete_field :tag_list, autocomplete_path, 'data-delimiter' => ',', :multiple => true -->
+      <p>
+        <%= t 'items.show.tags' %>
+        <%= form.text_field :tag_list, value: @item.tag_list.to_s %>
+      </p>
+    </div>
 
-    <%= render 'items/item_inputs', :form => form %>
+    <div class="form-group">
+      <%= render 'items/item_inputs', :form => form %>
+    </div>
     
-    <p>
+    <div class="form-group">
       <%= form.submit (t 'items.index.update'), class: "btn btn-success" %>
       <%= link_to (t 'items.index.remove'), collection_item_path(@collection, @item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
       <%= link_to (t 'items.index.view'), item_path(@item), class: "btn btn-primary" %>
-    </p>
+    </div>
   <% end %>
 </div>

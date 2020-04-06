@@ -1,7 +1,7 @@
-<div>
+<div class="container">
   <h3><%= t('items.index.item', item_name: item.name) %></h3>
-  <p>
-    <strong><%= 'Tags:' %></strong>
+  <p >
+    <strong><%= t 'items.show.tags' %></strong>
     <%= item.tag_list %>
   </p>
 
@@ -9,8 +9,11 @@
     <%= render 'items/item_displaying', :item_option_value => item_option_value %>
   <% end %>
 
-  <p><%= link_to (t 'items.index.view'), item_path(item) %></p>
-  <% if user_signed_in? and (@collection.user.id == current_user.id) and !current_user.blocked %>
-    <p><%= link_to 'edit', edit_collection_item_path(@collection, item) %></p>
-  <% end %>
+  <p>
+    <% if user_signed_in? and (@collection.user.id == current_user.id) and !current_user.blocked %>
+      <%= link_to (t 'items.index.edit'), edit_collection_item_path(@collection, item), class: "btn btn-success" %>
+      <%= link_to (t 'items.index.remove'), collection_item_path(@collection, item), method: :delete, data: { confirm: (t 'shared.sure') }, class: "btn btn-danger" %>
+    <% end %>
+    <%= link_to (t 'items.index.view'), item_path(item), class: "btn btn-primary" %>
+  </p>
 </div>

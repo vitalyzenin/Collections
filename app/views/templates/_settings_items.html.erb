@@ -1,15 +1,18 @@
-<% if user_signed_in? %>
-  <%= form_for current_user, url: user_path(current_user), method: :put, class: "form-inline my-2" do |form| %>
-    <%= form.radio_button :locale, "en", id: "en" %>
-    <%= form.label "English", for: "en" %>
-    <%= form.radio_button :locale, "ru", id: "ru" %>
-    <%= form.label (t 'shared.russian'), for: "ru" %>
+<div>
+  <% if user_signed_in? %>
+    <%= form_for current_user, url: user_path(current_user), method: :put, class: "form-inline my-2 my-lg-0" do |form| %>
 
-    <%= form.radio_button :theme, "light", id: "light" %>
-    <%= form.label (t 'shared.light'), for: "light" %>
-    <%= form.radio_button :theme, "dark", id: "dark" %>
-    <%= form.label (t 'shared.dark'), for: "dark" %>
+      <%= form.radio_button :locale, "en", id: "en" %>
+      <%= form.label "English", for: "en" %>
+      <%= form.radio_button :locale, "ru", id: "ru" %>
+      <%= form.label (t 'shared.russian'), for: "ru" %>
 
-    <%= form.submit (t 'shared.save'), class: "btn btn-outline-success my-2" %>
+      <%= form.radio_button :theme, "light", id: "light", class: "mr-sm-2" %>
+      <%= form.label (t 'shared.light'), for: "light", class: "mr-sm-2" %>
+      <%= form.radio_button :theme, "dark", id: "dark", class: "mr-sm-2" %>
+      <%= form.label (t 'shared.dark'), for: "dark" %>
+
+      <%= form.submit (t 'shared.save'), class: "btn btn-outline-success my-2" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -1,11 +1,13 @@
 <div class='nested-fields'>
   <p class="field">
-    <%= f.label :name %>
+    <%= f.label (t 'collections.new.field_name') %>
     <%= f.text_field :name %>
   </p>
   <p class="field">
-    <%= f.label t 'collections.show.theme' %>
+    <%= f.label t 'collections.new.type' %>
     <%= f.select(:option_type, ItemOption.option_type.options, {}, {:disabled => true}) %>
   </p>
-  <%= link_to_remove_association "remove field", f %>
+  <p>
+    <%= link_to_remove_association (t "collections.new.remove_field"), f, class: "btn btn-danger" %>
+  </p>
 </div>

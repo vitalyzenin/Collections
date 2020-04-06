@@ -11,8 +11,7 @@
   <%= render 'collections/single_collection' %>
 
   <% if (@collection.user == current_user) and !current_user.blocked %>
-    <h2><%= t '.add' %></h2>
-    <%= link_to 'new', new_collection_item_path(@collection) %>
+    <%= link_to (t '.add'), new_collection_item_path(@collection), class: "btn btn-success" %>
   <% end %>
 
   <h2><%= t '.items' %></h2>

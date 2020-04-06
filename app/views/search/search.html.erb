@@ -1,14 +1,16 @@
 <div class='container'>
-  <h1>Items founded by search</h1>
+  <h1><%= t 'search.items' %></h1>
   <% @items.each do |item| %>
     <div class='container'>
       <h2><%= t('items.index.item', item_name: item.name) %></h2>
-      <p><strong><%= 'From collection:' %></strong>
-      <%= item.collection.name %></p>
-      <p><strong><%= 'Collection description:' %></strong>
-      <%= item.collection.content %></p>
-      <p><strong><%= 'Tags:' %></strong>
-      <%= item.tag_list %></p>
+      <p>
+        <strong><%= t 'items.show.from_col' %></strong>
+        <%= item.collection.name %>
+      </p>
+      <p>
+        <strong><%= t 'items.show.tags' %></strong>
+        <%= item.tag_list %>
+      </p>
       <p>
         <%= link_to (t 'items.index.view'), item_path(item.id) %>
       </p>

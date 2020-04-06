@@ -1,8 +1,9 @@
 en:
   welcome:
     index:
-      welcome: "Welcome to collections site!"
+      welcome: "Welcome to the collections site!"
       userslist: "Another users collections here"
+      taglist: "Tag Cloud"
   users:
     index:
       users_list: "Users List"
@@ -36,6 +37,12 @@ en:
       items: "Items List"
       my_col: "This collection belongs to you"
       host_user: "This collection belongs to %{to_whom}"
+      edit: "Edit"
+    new:
+      add_field: "Add custom field"
+      field_name: "Field Name"
+      type: "Field Type"
+      remove_field: "Remove the above field"
   items:
     index:
       name: "Item name:"
@@ -45,6 +52,14 @@ en:
       update: "Update Item"
       remove: "Delete Item"
       view: "To the item page"
+      edit: "Edit Item"
+    show:
+      from_col: "This item belongs to collection:"
+      tags: "Tags:"
+      my_item: "This item is from your collection"
+      not_my: "This item is from %{to_whom}' collection"
+      'yes': "Yes"
+      'no': "No"
   shared:
     home: "Homepage"
     office: "My collections"
@@ -63,6 +78,7 @@ en:
     view_masque: "Login As"
     back: "back"
     username: "Name:"
+    userslist: "User List"
   info:
     logged: "You're now logged in as %{who_am_i}"
     anon: "You're now viewing this site as anonymous user"
@@ -73,4 +89,6 @@ en:
     take_admin_self: "Stop administering"
     sure_block: "You are about to block yourself. Are you sure?"
     sure_admin: "You are about to become ordinary user. Are you sure?"
+  search:
+    items: "Items founded by search"
     

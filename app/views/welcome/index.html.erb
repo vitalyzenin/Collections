@@ -1,9 +1,14 @@
 <div class="container">
-  <h1><%= t '.welcome' %></h1>
-
-  <p><%= link_to (t '.userslist'), users_path %></p>
-
-  <% tag_cloud(@tags, %w(h4 h3 h2 h1)) do |tag, css_class| %>
-    <%= link_to tag, results_path(tag: tag.name), class: css_class %>
-  <% end %>
+  <div class="container">
+    <h1><%= t '.welcome' %></h1>
+    <p><%= link_to (t 'shared.office'), user_path(current_user) %></p>
+    <p><%= link_to (t '.userslist'), users_path %></p>
+  </div>
+  
+  <div class="container">
+    <h2><%= t 'welcome.index.taglist' %></h2>
+    <% tag_cloud(@tags, %w(h4 h3 h2 h1)) do |tag, css_class| %>
+      <%= link_to tag, results_path(tag: tag.name), class: css_class %>
+    <% end %>
+  </div>
 </div>

@@ -1,11 +1,11 @@
-<div>
+<div class="container">
   <p>
     <strong><%= t 'collections.show.description' %></strong>
     <%= @collection.content %>
   </p>
   <p>
     <strong><%= t 'collections.show.theme' %></strong>
-    <%= @collection.theme %>
+    <%= @collection.theme_text %>
   </p>
   <% if !@collection.picture.file.nil? %>
     <p>

@@ -9,8 +9,14 @@
     <p><strong><%= item_option_value.item_option.name %></strong>
     <%= l(item_option_value.date_content.to_date) %></p>
   <% when 'bool' %>
-    <p><strong><%= item_option_value.item_option.name %></strong>
-    <%= item_option_value.bool_content %></p>
+    <p>
+      <strong><%= item_option_value.item_option.name %></strong>
+      <% if item_option_value.bool_content %>
+        <%= t 'items.show.yes' %>
+      <% else %>
+        <%= t 'items.show.no' %>
+      <% end %>
+    </p>
   <% when 'text' %>
     <p><strong><%= item_option_value.item_option.name %></strong>
     <%= item_option_value.text_content %></p>

@@ -1,30 +1,33 @@
 <%= form_for @collection, url: collections_path, html: { multipart: true }, method: :create do |f| %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <p>
-    <%= f.label t 'collections.show.name' %><br>
-    <%= f.text_field :name %><br>
-    <i><%= t 'collections.show.warning' %></i>
-  </p>
-  <p>
-    <%= f.label t 'collections.show.description' %><br>
-    <%= f.rich_text_area :content %>
-  </p>
-  <p>
-    <%= f.label t 'collections.show.theme' %><br>
-    <%= f.select(:theme, Collection.theme.options) %>
-  </p>
-  <p>
-    <%= f.label t 'collections.show.picture' %><br>
-    <%= f.file_field :picture %>
-  </p>
+  <div class="form-group">
+    <p>
+      <%= f.label t 'collections.show.name' %><br>
+      <%= f.text_field :name %><br>
+      <i class="form-text text-muted"><%= t 'collections.show.warning' %></i>
+    </p>
+    <p>
+      <%= f.label t 'collections.show.description' %><br>
+      <%= f.rich_text_area :content %>
+    </p>
+    <p>
+      <%= f.label t 'collections.show.theme' %><br>
+      <%= f.select(:theme, Collection.theme.options, {}, {class: "form-control"}) %>
+    </p>
+    <p>
+      <%= f.label t 'collections.show.picture' %><br>
+      <%= f.file_field :picture, class: "form-control-file" %>
+    </p>
+  </div>
 
-  <h3>Fields</h3>
-  <div id='item_options'>
-    <%= f.fields_for :item_options do |option| %>
-      <%= render 'item_option_fields', :f => option %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add field', f, :item_options %>
+  <div class="form-group">
+    <div id='item_options'>
+      <%= f.fields_for :item_options do |option| %>
+        <%= render 'item_option_fields', :f => option %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association (t 'collections.new.add_field'), f, :item_options, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 
