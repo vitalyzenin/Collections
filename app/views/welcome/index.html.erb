@@ -1,7 +1,9 @@
 <div class="container">
   <div class="container">
     <h1><%= t '.welcome' %></h1>
-    <p><%= link_to (t 'shared.office'), user_path(current_user) %></p>
+    <% if user_signed_in? %>
+      <p><%= link_to (t 'shared.office'), user_path(current_user) %></p>
+    <% end %>
     <p><%= link_to (t '.userslist'), users_path %></p>
   </div>
   
