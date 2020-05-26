@@ -15,7 +15,7 @@ gem 'devise'
 gem 'devise_masquerade'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 
 gem 'carrierwave', '~> 2.0'
 gem "fog-aws"
